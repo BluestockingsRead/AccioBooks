@@ -157,7 +157,6 @@ input[type="submit" i] {
     white-space: nowrap;
     will-change: box-shadow, transform;
     font-size: 16px;
-    font-weight: 600;
     box-shadow: 
         rgba(45, 35, 66, 0.4) 0 2px 4px, 
         rgba(45, 35, 66, 0.3) 0 7px 13px -3px, 
@@ -538,10 +537,11 @@ ul li.checkmark::before {
     content: "\2713";
     /* Adds a check mark before each list item */
     color: green;
-    /* Sets the color of the bullet */
     padding-right: 8px;
     /* Adds space between the bullet and the text */
 }
+
+
 /*#endregion ::: LEARNMORE.HTML ::: */
 
 /*#region ::: FUNNY ::: */
@@ -580,6 +580,4 @@ ul li.checkmark::before {
   0% { transform: scale(1.1); }
   50% { transform: scale(1.15); }
   100% { transform: scale(1.1); }
-}
-*/
-/*#endregion ::: FUNNY ::: */
+}*/
