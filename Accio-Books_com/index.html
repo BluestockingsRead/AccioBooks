@@ -10,7 +10,7 @@
         gtag('js', new Date());
         gtag('config', 'G-SBQ15BLV29');
     </script>
-	<!-- #endregion Google Analytics -->
+<!-- #endregion Google Analytics -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Accio Books! - Your one-stop search tool for all your favorite book sites.">
@@ -124,9 +124,9 @@
 				// Get the Amazon link template for the user's language
 				var amazonLinkTemplate = getAmazonLink(userLang);
 
-				// #endregion ::: AMAZON LOCALIZATON AREA :::
+// #endregion ::: AMAZON LOCALIZATON AREA :::
 
-				// #region ::: FORM HANDLING SECTION :::
+// #region ::: FORM HANDLING SECTION :::
 				
 				// Handle the form submission
 				document.getElementById("searchForm").onsubmit = function(event) {
@@ -172,8 +172,8 @@
 							const fullUrl = search.url.replace("{searchTerm}", encodeURIComponent(title));
 							let referralLink = search.referralUrl ? search.referralUrl.replace("{searchTerm}", encodeURIComponent(title)) : null;
 
-            // Create HTML for links
-            // ... create HTML for DUO link results (referral+direct)
+            				// Create HTML for links
+            				// ... create HTML for DUO link results (referral+direct)
                             if (referralLink) {
                                 return `
                                     <div class="result-container--duo">
@@ -185,7 +185,7 @@
 																			</span>
 																	</div>`;
 //                            
-            // ... create HTML for (single) DIRECT link results
+            										// ... create HTML for (single) DIRECT link results
 													} else {
 															return `
                             <div class="result-container--mono">
@@ -256,13 +256,13 @@
 				</button>
 			</div>
 			<hr>
-			<!-- #endregion ::: DARK MODE ::: -->
-			<!-- #region ::: FOOTER TEXT AREA ::: -->
+<!-- #endregion ::: DARK MODE ::: -->
+<!-- #region ::: FOOTER TEXT AREA ::: -->
 			<p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
-                <span>Hey there! This search tool is a labor of love, I hope you find it helpful! Some results here include referral links. Using them helps support this site and keep it running. However, non-referral links are also provided for your convenience. Thanks and happy reading 📚!
+                <span>Hey there! This search tool is a labor of love—I hope you find it helpful! Some results here include referral links. Using them helps support this site and keep it running. However, non-referral links are also provided for your convenience. Thanks and happy reading 📚!
                 </span>
 			</p>
-			<p>
+			<p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
 				<span>- Kacie from&nbsp;
 				<a href="https://bluestockingsread.com/">BluestockingsRead.com</a>.
 				</span>
