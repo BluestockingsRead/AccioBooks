@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- #region Dark Mode work Faster (rest of script in darkmode dot js file) -->
+    <title>Dark Mode</title>
+    <style>
+        html {
+            filter: invert(0);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .dark-mode {
+            filter: invert(1);
+        }
+    </style>
+    <script>
+        // Immediately apply dark mode based on saved preference
+        (function() {
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+<!-- #endregion Dark Mode work Faster (rest of script in darkmode dot js file) -->
 <!-- #region Google Analytics -->
 <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SBQ15BLV29"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-SBQ15BLV29');
-    </script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-SBQ15BLV29');
+</script>
 <!-- #endregion Google Analytics -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Accio Books! - Your one-stop search tool for all your favorite book sites.">
-    <title>Accio Books!</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <img src="accio-books.png" alt="site Header titled '✨Accio Books!' in a cute font" width="84%" style="margin-right: 3vw;">
+        <header>"
+            <img src="accio-books.png" class="accio-header"alt="site Header titled '✨Accio Books!' in a cute font" width="84%" style="margin-right: 3vw;">
         </header>
 <!-- #region ::: LINKED SITES LIST ::: -->
         <div class="sites-list">
@@ -258,18 +275,22 @@
 			<hr>
 <!-- #endregion ::: DARK MODE ::: -->
 <!-- #region ::: FOOTER TEXT AREA ::: -->
-			<p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
-                <span>Hey there! This search tool is a labor of love—I hope you find it helpful! Some results here include referral links. Using them helps support this site and keep it running. However, non-referral links are also provided for your convenience. Thanks and happy reading 📚!
+            <p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
+                <span>Hey there! This search tool is a labor of love—I hope you find it helpful! Please <a href="https://accio-books.com//learnmore.html">click here</a> to
+                    learn more about Accio-Books.com's features, including FAQs, fun facts, tips and trick, affiliate
+                    details, and contact info.Thanks and happy reading 📚!
                 </span>
-			</p>
-			<p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
-				<span>- Kacie from&nbsp;
-				<a href="https://bluestockingsread.com/">BluestockingsRead.com</a>.
-				</span>
-			</p>
-<!-- #endregion ::: FOOTER TEXT AREA ::: -->
-		</footer>
+            </p>
+            <p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
+                <span>- Kacie from&nbsp;
+                    <a href="https://bluestockingsread.com/">BluestockingsRead.com</a>.
+                </span>
+            </p>
+            <!-- #endregion ::: FOOTER TEXT AREA ::: -->
+        </footer>
+<!-- #region ::: DARK MODE DOT JS LINK ::: -->
 	</div>
 	<script src="darkmode.js" defer></script>
+<!-- #endregion ::: DARK MODE DOT JS LINK ::: -->
 </body>
 </html>

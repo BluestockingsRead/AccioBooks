@@ -11,6 +11,7 @@ body {
     background-color: white;
 }
 
+
 .container {
     max-width: 500px;
     margin: 0 auto;
@@ -283,6 +284,7 @@ html {
 .dark-mode {
     filter: invert(1);
 }
+
 /* TOGGLE BUTTON  */
 
 #dark-mode-toggle {
@@ -522,6 +524,25 @@ html {
 }
 
 /*#endregion ::: FONTS ::: */
+
+/* :::::::::: */
+/*#region ::: LEARNMORE.HTML ::: */
+
+/* checkmark list */
+ul {
+    list-style-type: none;
+    /* Removes bullet points */
+}
+
+ul li.checkmark::before {
+    content: "\2713";
+    /* Adds a check mark before each list item */
+    color: green;
+    /* Sets the color of the bullet */
+    padding-right: 8px;
+    /* Adds space between the bullet and the text */
+}
+/*#endregion ::: LEARNMORE.HTML ::: */
 
 /*#region ::: FUNNY ::: */
 
