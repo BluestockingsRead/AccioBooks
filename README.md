@@ -1,3 +1,3 @@
 # AccioBooks
-Magic BOOKmarklet for searching multiple sites for the same book. 
+New website searches multiple sites for the same book.  
 Stay tuned for more info.
