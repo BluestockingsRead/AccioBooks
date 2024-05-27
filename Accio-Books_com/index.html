@@ -1,121 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨Accio Books!</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+		<!-- #region Google Analytics -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SBQ15BLV29"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-SBQ15BLV29');
+        gtag('config', 'G-SBQ15BLV29');
     </script>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            font-size: 1.02em; 
-            padding: 5px 15px; 
-            line-height: 1.3; 
-        }
-        img { 
-            max-width: 400px; 
-            width: 100%; 
-            margin-bottom: 5px; 
-        }
-        #searchForm { 
-            margin: 10px 0; 
-        }
-        p { 
-            padding-left: 0; 
-        }
-        #searchForm input[type="text"] { 
-            width: 100%; 
-            max-width: 300px; 
-            padding: 5px; 
-        }
-        #searchForm input[type="submit"] { 
-            padding: 5px 10px; 
-            margin: 5px; 
-        }
-        #results { 
-            margin: 30px 3vw; 
-        }
-        #results a { 
-            display: block; 
-            margin: 2px; 
-            font-size: 1em; 
-        }
-        #error { 
-            color: red; 
-        }
-    </style>
+		<!-- #endregion Google Analytics -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accio Books!</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <img src="accio-books.png" alt="Website Header titled '✨Accio Books!' in a cute font">
-    </header>
-    <form id="searchForm">
-        <label for="bookTitle">
-            <p>Watch your list magically appear...</p>
-            <p>Search book title <em>(author optional)</em>:</p>
-        </label>
-        <input type="text" id="bookTitle" name="bookTitle">
-        <input type="submit" value="✨Accio Books!">
-    </form>
-    <div id="results"></div>
-    <div id="error"></div>
-    <script>
-        document.getElementById("searchForm").onsubmit = function(event) {
-            event.preventDefault();
-            const title = document.getElementById("bookTitle").value.trim();
-            const errorDiv = document.getElementById("error");
-            const resultsDiv = document.getElementById("results");
-            if (!title) {
-                errorDiv.textContent = "Please enter a book title.";
-                resultsDiv.innerHTML = "";
-                return;
-            }
-            try {
-                errorDiv.textContent = "";
-                const searches = [
-                    { name: 'Goodreads', url: 'https://www.goodreads.com/search?q={searchTerm}' },
-                    { name: 'StoryGraph', url: 'https://app.thestorygraph.com/browse?search_term={searchTerm}' },
-                    { name: 'Romance.io', url: 'https://www.romance.io/search?q={searchTerm}' },
-                    { name: 'BookBub', url: 'https://www.bookbub.com/search?search={searchTerm}' },
-                    { name: 'Amazon Kindle', url: 'https://www.amazon.com/s?k={searchTerm}&i=digital-text' },
-                    { name: 'Audible', url: 'https://www.audible.com/search?keywords={searchTerm}' },
-                    { name: 'Barnes & Noble', url: 'https://www.barnesandnoble.com/s/{searchTerm}/_/N-8qa' },
-                    { name: 'Kobo eBook', url: 'https://www.kobo.com/us/en/search?query={searchTerm}&fcmedia=Book' },
-                    { name: 'Kobo Audiobook', url: 'https://www.kobo.com/us/en/search?query={searchTerm}&fcmedia=Audiobook' },
-                    { name: 'Apple', url: 'https://www.apple.com/us/search/{searchTerm}?src=globalnav' },
-                    { name: 'Google Play', url: 'https://play.google.com/store/search?c=books&q={searchTerm}' }
-                ];
-                let searchLinks = "";
-                searches.forEach(function(search) {
-                    const fullUrl = search.url.replace("{searchTerm}", encodeURIComponent(title));
-                    searchLinks += '<a href="' + fullUrl + '" target="_blank">' + search.name + ' - ' + title + '</a>';
-                    if (search.note) {
-                        searchLinks += ' <small>' + search.note + '</small>';
+    <div class="container">
+        <header>
+            <img src="accio-books.png" alt="site Header titled '✨Accio Books!' in a cute font" width="84%" style="margin-right: 3vw;">
+        </header>
+				<!-- #region ::: LINKED SITES LIST ::: -->
+        <div class="sites-list">
+            <p style="text-align: center;">
+                <span>goodreads ◦ </span>
+                <span>storygraph ◦ </span>
+                <span>romance.io</span><br>
+                <span>bookbub ◦ </span>
+                <span>amazon kindle ◦ </span>
+                <span>audible</span><br>
+                <span>barnes & noble ◦ </span>
+                <span>kobo</span><br>
+                <span>apple ◦ </span>
+                <span>google play ◦ </span>
+                <span>more soon!</span>
+                <!--<span>audiobooks.com ◦ </span>
+                    <span>chirp ◦ </span> -->
+            </p>
+        </div>
+				<!-- #endregion LINKED SITES LIST -->
+        <!-- #region ::: INTRO TEXT ::: -->
+				<p style="font-family: 'Courier New', Courier, monospace; letter-spacing: -0.02em; line-height: 1.4; font-weight: 600; color: #4b4e6c;">Looking for your next great read? Assemble all your favorite book sites with just one tap, and save more time for reading!</p>
+				<!-- #endregion INTRO TEXT -->
+				<!-- #region ::: SEARCH FORM AREA ::: -->
+        <form id="searchForm">
+					<label for="bookTitle">
+							<div class="searchInputWrapper">
+									<input type="text" class="searchInput" id="bookTitle" name="bookTitle" placeholder="Enter Title (author optional) or ISBN">
+							</div>
+							<div class="searchButton">
+									<input type="submit" value="Accio Books!">
+							</div>
+					</label>
+				</form>			
+				<!-- #endregion SEARCH FORM AREA -->
+        <!-- #region ::: ERROR HANDLING ::: -->
+				<div id="error" style="color: red;"></div>
+        <div id="results"></div>
+				<!-- #endregion ::: ERROR HANDLING ::: -->
+				<!-- #region ::: MAGIC SEARCH LINKS JS SCRIPT ::: -->
+        <script>
+					// #region ::: AMAZON LOCALIZATON AREA :::
+					(function () {
+							// Get the user's language from the browser settings
+							var userLang = navigator.language || navigator.userLanguage;
+			
+							// Define Amazon links for different countries
+							var amazonLinks = {
+									'US': 'https://www.amazon.com/s?k={searchTerm}&i=digital-text',
+									'CA': 'https://www.amazon.ca/s?k={searchTerm}&i=digital-text',
+									'GB': 'https://www.amazon.co.uk/s?k={searchTerm}&i=digital-text',
+									'DE': 'https://www.amazon.de/s?k={searchTerm}&i=digital-text',
+									'FR': 'https://www.amazon.fr/s?k={searchTerm}&i=digital-text',
+									'IT': 'https://www.amazon.it/s?k={searchTerm}&i=digital-text',
+									'ES': 'https://www.amazon.es/s?k={searchTerm}&i=digital-text',
+									'JP': 'https://www.amazon.co.jp/s?k={searchTerm}&i=digital-text',
+									'CN': 'https://www.amazon.cn/s?k={searchTerm}&i=digital-text',
+									'IN': 'https://www.amazon.in/s?k={searchTerm}&i=digital-text',
+									'MX': 'https://www.amazon.com.mx/s?k={searchTerm}&i=digital-text',
+									'BR': 'https://www.amazon.com.br/s?k={searchTerm}&i=digital-text',
+									'AU': 'https://www.amazon.com.au/s?k={searchTerm}&i=digital-text',
+									'NL': 'https://www.amazon.nl/s?k={searchTerm}&i=digital-text',
+									'AE': 'https://www.amazon.ae/s?k={searchTerm}&i=digital-text',
+									'SA': 'https://www.amazon.sa/s?k={searchTerm}&i=digital-text',
+									'SG': 'https://www.amazon.sg/s?k={searchTerm}&i=digital-text',
+									'TR': 'https://www.amazon.com.tr/s?k={searchTerm}&i=digital-text',
+									'SE': 'https://www.amazon.se/s?k={searchTerm}&i=digital-text',
+									'PL': 'https://www.amazon.pl/s?k={searchTerm}&i=digital-text'
+							};
+			
+							// Function to map user's language to the corresponding Amazon country link
+							function getAmazonLink(lang) {
+									var langMappings = {
+											'en-US': 'US',
+											'en-CA': 'CA',
+											'en-GB': 'GB',
+											'de-DE': 'DE',
+											'fr-FR': 'FR',
+											'it-IT': 'IT',
+											'es-ES': 'ES',
+											'ja-JP': 'JP',
+											'zh-CN': 'CN',
+											'hi-IN': 'IN',
+											'es-MX': 'MX',
+											'pt-BR': 'BR',
+											'en-AU': 'AU',
+											'nl-NL': 'NL',
+											'ar-AE': 'AE',
+											'ar-SA': 'SA',
+											'en-SG': 'SG',
+											'tr-TR': 'TR',
+											'sv-SE': 'SE',
+											'pl-PL': 'PL'
+									};
+			
+									// Return the appropriate Amazon link based on the user's language or default to US if not found
+									return amazonLinks[langMappings[lang]] || amazonLinks['US'];
+							}
+			
+							// Get the Amazon link template for the user's language
+							var amazonLinkTemplate = getAmazonLink(userLang);
+
+							// #endregion ::: AMAZON LOCALIZATON AREA :::
+
+							// #region ::: FORM HANDLING SECTION :::
+							
+							// Handle the form submission
+							document.getElementById("searchForm").onsubmit = function(event) {
+									event.preventDefault(); // Prevent the form from actually submitting
+			
+									// Get the book title from the input field and trim any whitespace
+									const title = document.getElementById("bookTitle").value.trim();
+									const errorDiv = document.getElementById("error");
+									const resultsDiv = document.getElementById("results");
+			
+									// Check if the title is empty and show an error message if it is
+									if (!title) {
+											errorDiv.textContent = "Please enter a book title.";
+											resultsDiv.innerHTML = "";
+											return;
+									}
+			
+									try {
+											// Clear any previous error messages
+											errorDiv.textContent = "";
+			
+											// Define referral codes for Amazon and Barnes & Noble
+											const amazonReferralCode = 'acciobooks-20';
+											const barnesReferralCode = '12345-6789';
+			
+											// List of search URLs for different sites
+											const searches = [
+													{ name: 'Goodreads', url: 'https://www.goodreads.com/search?q={searchTerm}' },
+													{ name: 'StoryGraph', url: 'https://app.thestorygraph.com/browse?search_term={searchTerm}' },
+													{ name: 'Romance.io', url: 'https://www.romance.io/search?q={searchTerm}' },
+													{ name: 'BookBub', url: 'https://www.bookbub.com/search?search={searchTerm}' },
+													{ name: 'Amazon Kindle', url: `https://www.amazon.com/s?k={searchTerm}`, referralUrl: `https://www.amazon.com/s?k={searchTerm}&tag=${amazonReferralCode}` },
+													{ name: 'Audible', url: 'https://www.audible.com/search?keywords={searchTerm}' },
+													{ name: 'Barnes & Noble', url: `https://www.barnesandnoble.com/s/{searchTerm}/_/N-8qa`, referralUrl: `https://www.barnesandnoble.com/s/{searchTerm}/_/N-8qa&tag=${barnesReferralCode}` },
+													{ name: 'Kobo eBook', url: `https://www.kobo.com/us/en/search?query={searchTerm}&fcmedia=Book`, referralUrl: `https://click.linksynergy.com/deeplink?id=Dm1PWoMJswg&mid=37217&murl=https%3a%2f%2fwww.kobo.com%2fus%2fen%2fsearch%3fquery%3d{searchTerm}%26fcmedia%3dBook` },
+													{ name: 'Kobo Audiobook', url: `https://www.kobo.com/us/en/search?query={searchTerm}&fcmedia=Audiobook`, referralUrl: `https://click.linksynergy.com/deeplink?id=Dm1PWoMJswg&mid=37217&murl=https%3a%2f%2fwww.kobo.com%2fus%2fen%2fsearch%3fquery%3d{searchTerm}%26fcmedia%3dAudiobook` },
+													{ name: 'Apple', url: 'https://www.apple.com/us/search/{searchTerm}?src=globalnav' },
+													{ name: 'Google Play', url: 'https://play.google.com/store/search?c=books&q={searchTerm}' }
+											];
+			
+											// Generate search links for each site
+											let searchLinks = searches.map(search => {
+													const fullUrl = search.url.replace("{searchTerm}", encodeURIComponent(title));
+													let referralLink = search.referralUrl ? search.referralUrl.replace("{searchTerm}", encodeURIComponent(title)) : null;
+			
+            // Create HTML for links
+            // ... create HTML for DUO link results (referral+direct)
+													if (referralLink) {
+															return `
+                            <div class="result-container--duo">
+                                    <a href="${referralLink}" target="_blank" class="result-url--referral">${title}</a>
+                                    <span class="result-details--duo">
+                                            <span class="result-separator--duo">&ensp;◦&ensp;</span>
+                                            <span class="result-sitename--duo">${search.name}</span>
+                                            <a href="${fullUrl}" target="_blank" class="result-url--non-referral">&emsp;non-referral link</a>
+																			</span>
+																	</div>`;
+//                            
+            // ... create HTML for (single) DIRECT link results
+													} else {
+															return `
+                            <div class="result-container--mono">
+                                    <a href="${fullUrl}" target="_blank" class="result-url--mono">${title}</a>
+                                    <span class="result-details--mono">
+                                            <span class="result-separator--mono">&ensp;◦&ensp;</span>
+                                            <span class="result-sitename--mono">${search.name}</span>
+																			</span>
+																	</div>`;
+													}
+											}).join('');
+			
+											// Display the generated links in the results div
+											resultsDiv.innerHTML = searchLinks;
+									} catch (error) {
+											// Show an error message if something goes wrong
+											errorDiv.textContent = "An unexpected error occurred. Please try again.";
+											resultsDiv.innerHTML = "";
+											console.error("Error generating search links:", error);
+									}
+							};
+					})();
+					// #endregion ::: FORM HANDLING SECTION :::
+				</script>
+			<!-- #endregion ::: MAGIC SEARCH LINKS JS SCRIPT ::: -->
+        <!-- #region ::: RAKUTEN AUTOMATE SCRIPT ::: -->
+				<script type="text/javascript">
+            var _rakuten_automate = {
+                u1: "",
+                snippetURL: "https://automate-frontend.linksynergy.com/minified_logic.js",
+                automateURL: "https://automate.linksynergy.com",
+                widgetKey: "fUtCP86PpnIVe0wJgOLXKnVEvbxSl6Hh",
+                aelJS: null,
+                useDefaultAEL: false,
+                loaded: false,
+                events: []
+            };
+            var ael = window.addEventListener;
+            window.addEventListener = function (a, b, c, d) {
+                "click" !== a && _rakuten_automate.useDefaultAEL ? ael(a, b, c) : _rakuten_automate.events.push({ type: a, handler: b, capture: c, rakuten: d });
+            };
+            _rakuten_automate.links = {};
+            var httpRequest = new XMLHttpRequest;
+            httpRequest.open("GET", _rakuten_automate.snippetURL, !0);
+            httpRequest.timeout = 5E3;
+            httpRequest.ontimeout = function () {
+                if (!_rakuten_automate.loaded) {
+                    for (i = 0; i < _rakuten_automate.events.length; i++) {
+                        var a = _rakuten_automate.events[i];
+                        ael(a.type, a.handler, a.capture);
                     }
-                    searchLinks += '<br>';
-                });
-                resultsDiv.innerHTML = searchLinks;
-            } catch (error) {
-                errorDiv.textContent = "An unexpected error occurred. Please try again.";
-                resultsDiv.innerHTML = "";
-                console.error("Error generating search links:", error);
-            }
-        };
-    </script>
-    <p>
-        <br>
-        <span style="font-family: 'book antiqua', palatino, serif;"><em>brought to you by Kacie from </em>
-        <a href="https://bluestockingsread.com/">BluestockingsRead.com</a>
-        </span>
-    </p>
+                    _rakuten_automate.useDefaultAEL = !0;
+                }
+            };
+            httpRequest.onreadystatechange = function () {
+                httpRequest.readyState === XMLHttpRequest.DONE && 200 === httpRequest.status && (eval(httpRequest.responseText), _rakuten_automate.run(ael));
+            };
+            httpRequest.send(null);
+        </script>
+				<!-- #endregion ::: RAKUTEN AUTOMATE SCRIPT ::: -->
+        <footer>
+						<!-- #region ::: DARK MODE AREA ::: -->
+            <div style="margin-top: 50px;"></div>
+            <div class="dark-toggle" data-title="Toggle light and dark mode">
+                <button id="dark-mode-toggle" aria-label="Toggle light and dark mode">
+                    <img src="darkmode_sun_moon.png" alt="Toggle between light and dark mode" width="42" height="21">
+                </button>
+            </div>
+            <hr>
+						<!-- #endregion ::: DARK MODE ::: -->
+            <!-- #region ::: FOOTER TEXT AREA ::: -->
+						<p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
+              <span>Hey there! This search tool is a labor of love, I hope you find it helpful!
+                Some results here include referral links. Using them helps support this site and keep it running.
+                However, non-referral links are also provided for your convenience. Thanks and happy reading 📚!</span><br>
+              <span>- Kacie from&nbsp;
+                <a href="https://bluestockingsread.com/">BluestockingsRead.com</a>.</span>
+            </p>
+						<!-- #endregion ::: FOOTER TEXT AREA ::: -->
+        </footer>
+    </div>
+		<script src="darkmode.js" defer></script>
 </body>
 </html>
