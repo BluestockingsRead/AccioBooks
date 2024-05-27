@@ -221,12 +221,13 @@ input[type="submit" i]:active {
         box-shadow 0.3s ease;
 }
 
-/* Hover effect for containers */
-.result-container--mono:hover,
-.result-container--duo:hover {
-    background-color: #f0f0f582;
-    box-shadow: 
-        rgba(0, 0, 0, 0.1) 0 4px 6px;
+/* GROUP: dot (◦), site name, and referral url (when duo) */
+.result-details--mono,
+.result-details--duo {
+    display: block; /* Force a new line */
+    flex-basis: 100%; /* Forces the details to take full width */
+    width: 100%; /* Ensures the details span the entire width */
+    margin-top: 5px; /* Adds a bit of spacing from the previous line */
 }
 
 /* Main URL styling for both result types */
@@ -245,30 +246,21 @@ input[type="submit" i]:active {
 .result-url--mono:hover {
     color: #1856f9;
     text-decoration: underline;
-    transform: translateY(-2px);
-    /* Slightly more noticeable lift */
-}
-
-/* GROUP: dot (◦), site name, and referral url (when duo) */
-.result-details--mono,
-.result-details--duo {
-    flex-grow: 1;
+    transform: translateY(-2px); /* Slightly more noticeable lift */
 }
 
 /* Separator dot (◦) for both result types */
 .result-separator--mono,
 .result-separator--duo {
     font-size: 1.05em;
-    color: #7a7a7a;
-    /* Subtle gray color for the separator */
+    color: #7a7a7a; /* Subtle gray color for the separator */
 }
 
 /* Styling Site Name (after ◦) */
 .result-sitename--mono,
 .result-sitename--duo {
     font-weight: 500;
-    color: #555555;
-    /* Slightly darker color for the site name */
+    color: #555555; /* Slightly darker color for the site name */
 }
 
 .result-url--non-referral {
@@ -277,8 +269,7 @@ input[type="submit" i]:active {
     letter-spacing: -0.04em;
     font-size: .9em;
     font-weight: 100;
-    color: #888888;
-    /* Subtle gray for non-referral URL */
+    color: #888888; /* Subtle gray for non-referral URL */
 }
 /*#endregion ::: SEARCH RESULTS ::: */
 
