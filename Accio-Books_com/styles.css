@@ -46,20 +46,44 @@ a {
 /*#endregion ::: BASICS ::: */
 
 /*#region ::: LINKED SITES LIST ::: */
+/* vertical scroll css */
 
-.sites-list {
-    white-space: normal;
-    word-break: keep-all;
-    font-style: italic;
-    font-size: 0.80em;
-    letter-spacing: .04rem;
-    color: #70738F
-}
-
-.sites-list span {
-    white-space: nowrap;
+.carousel-container {
+    overflow: hidden;
+    height: 50px;
+    width: 200px;
     position: relative;
+    background-color: #e9e3f542;
+    border: 2px solid #fff;
 }
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+    animation: scroll 10s linear infinite;
+}
+
+.carousel-item {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fade 10s linear infinite;
+    font-family: Roboto;
+}
+
+@keyframes scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-250px); }
+}
+
+@keyframes fade {
+    0%, 100% { opacity: 0; }
+    20%, 80% { opacity: 1; }
+}
+
+
 
 /*#endregion LINKED SITES LIST */
 

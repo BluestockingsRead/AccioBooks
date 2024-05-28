@@ -8,7 +8,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 
-<!-- #region Dark Mode work Faster (rest of script in darkmode dot js file) -->
+<!-- #region DARK MODE (quick-startup script) -->
     <title>Dark Mode</title>
     <style>
         html {
@@ -28,9 +28,9 @@
             }
         })();
     </script>
-<!-- #endregion Dark Mode work Faster (rest of script in darkmode dot js file) -->
+<!-- #endregion DARK MODE (quick-startup script) -->
 <!-- #region Google Analytics -->
-<!-- Google tag (gtag.js) -->
+	<!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SBQ15BLV29"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -42,27 +42,29 @@
 </head>
 <body>
     <div class="container">
-        <header>"
+        <header>
             <img src="accio-books.png" class="accio-header" alt="site Header titled '✨Accio Books!' in a cute font" width="84%" style="margin-right: 3vw;">
         </header>
 <!-- #region ::: LINKED SITES LIST ::: -->
-        <div class="sites-list">
-            <p style="text-align: center;">
-                <span>goodreads ◦ </span>
-                <span>storygraph ◦ </span>
-                <span>romance.io</span><br>
-                <span>bookbub ◦ </span>
-                <span>amazon kindle ◦ </span>
-                <span>audible</span><br>
-                <span>barnes & noble ◦ </span>
-                <span>kobo</span><br>
-                <span>apple ◦ </span>
-                <span>google play ◦ </span>
-                <span>more soon!</span>
-                <!--<span>audiobooks.com ◦ </span>
-                <span>chirp ◦ </span> -->
-            </p>
-        </div>
+<div style="margin-top: 20px;"></div>
+<div class="carousel-container">
+	<div class="carousel">
+	<div class="carousel-item">Goodreads</div>
+	<div class="carousel-item">Storygraph</div>
+	<div class="carousel-item">Romance.io</div>
+	<div class="carousel-item">Bookbub</div>
+	<div class="carousel-item">Amazon Kindle</div>
+	<div class="carousel-item">Audible</div>
+	<div class="carousel-item">Goodreads</div>
+	<div class="carousel-item">Storygraph</div>
+	<div class="carousel-item">Romance.io</div>
+	<div class="carousel-item">Bookbub</div>
+	<div class="carousel-item">Amazon Kindle</div>
+	<div class="carousel-item">Audible</div>
+	<!-- Duplicate items to ensure seamless looping -->
+	</div>
+</div>
+
 <!-- #endregion LINKED SITES LIST -->
 <!-- #region ::: INTRO TEXT ::: -->
 		<p style="letter-spacing: -0.02em; line-height: 1.4; font-weight: 500; color: #4b4e6c;">Looking for your next great read? Assemble all your favorite book sites with just one tap, and save more time for reading!</p>
