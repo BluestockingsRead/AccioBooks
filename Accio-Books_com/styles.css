@@ -3,30 +3,53 @@
 
 /*#region ::: BASICS ::: */
 
-body {
-    font-family: 'Roboto Slab', sans-serif;
-    font-size: 1.02em;
-    padding: 5px 5px;
-    line-height: 1.4;
-    background-color: white;
+html {
+    padding: 0 3%;
+    background-color: #efeef7;
 }
 
+body {
+    max-width: 750px;
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+    justify-content: center; /* centers horizontally */
+    align-items: flex-start; /* centers vertically */
+    margin: auto;
+    padding: 5px 5px;
+    background-color: #fefeff;
+    font-family: 'Roboto Slab', sans-serif;
+    box-shadow: #000000b8 0 .2em 1em;
+}
 
 .container {
-    max-width: 500px;
-    margin: 0 auto;
+    width: 99%;
     text-align: center;
+}
+/* Accio Books! header in Symphony font */
+.accio-header img {
+    display: inline-block;
+    position: relative;
+    max-width: 65%;
+}
+
+/* 0px-470px */
+@media (max-width:470px) {
+    .accio-header img {
+        max-width: 85%;
+    }
 }
 
 p {
-    width: 90%;
-    text-align: left;
-    padding: 8px 28px 8px 28px;
+    padding: 1.5em 2em;
+    text-align: justify;
     letter-spacing: -0.02em;
     line-height: 1.4;
     font-weight: 500;
     color: #4b4e6c;
-    background-color: white;
+    background-color: inherit;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* CURSOR OVERRIDES */
@@ -46,44 +69,37 @@ a {
 /*#endregion ::: BASICS ::: */
 
 /*#region ::: LINKED SITES LIST ::: */
-/* vertical scroll css */
 
-.carousel-container {
-    overflow: hidden;
-    height: 50px;
-    width: 200px;
+/* For book reviews,etc. Keeps tropes together, prevents line breaks */
+.sites-list {
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.1;
+    max-width: 100%;
+    white-space: normal;/* Allow wrapping */
+    word-break: keep-all;/* Prevent breaking within words */
+}
+
+.sites-list span {
+    display: inline-block;
+    white-space: nowrap;/* Prevent breaking within each item */
     position: relative;
-    background-color: #e9e3f542;
-    border: 2px solid #fff;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.80em !important;
+    letter-spacing: .04rem;
+    color: #70738F;
 }
 
-.carousel {
-    display: flex;
-    flex-direction: column;
-    animation: scroll 10s linear infinite;
+.sites-list span::before {
+    content: ' ◦ '; /* separator used as line break point */
+    white-space: nowrap;
 }
 
-.carousel-item {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    animation: fade 10s linear infinite;
-    font-family: Roboto;
+/* Remove the trailing separator for the last span */
+.sites-list span:last-child::after {
+    content: ' ◦ ';
 }
-
-@keyframes scroll {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-250px); }
-}
-
-@keyframes fade {
-    0%, 100% { opacity: 0; }
-    20%, 80% { opacity: 1; }
-}
-
-
 
 /*#endregion LINKED SITES LIST */
 
@@ -102,7 +118,7 @@ a {
     padding-inline: 20px;
     font-size: 16px;
     color: #36395A;
-    background-color: #e9e3f542;
+    background-color: #e9e3f542; /* vs #fff; */
     border: 1px solid #D6D6E7;
     border-radius: 8px;
     transition: box-shadow .15s, transform .15s;
@@ -133,7 +149,7 @@ a {
 /* When typing text */
 .searchInputWrapper:focus-within input[type="text"] {
     background-color: 
-        #9da1b021;
+        #efeff6;
     box-shadow: 
         rgba(45, 35, 66, 0.4) 0 -2px 4px,
         rgba(45, 35, 66, 0.4) 0 3px 4px,
@@ -298,6 +314,7 @@ input[type="submit" i]:active {
 /*#endregion ::: SEARCH RESULTS ::: */
 
 /*#region ::: DARK MODE ::: */
+/* Your existing CSS here */
 
 html {
     filter: invert(0);
@@ -306,6 +323,11 @@ html {
 
 .dark-mode {
     filter: invert(1);
+}
+
+.dark-mode .accio-header img,
+.dark-mode .no-invert img {
+    filter: invert(1) !important;
 }
 
 /* TOGGLE BUTTON  */
@@ -371,11 +393,10 @@ html {
     transform: translateY(2px);
 }
 
-/* tooltip */
-[data-title]:hover::after {
-    opacity: 1;
-    transition: all 0.1s ease 0.2s;
-    visibility: visible;
+/* DARK  MODE TOOLTIP */
+
+[data-title] {
+    position: relative;
 }
 
 [data-title]::after {
@@ -388,7 +409,7 @@ html {
     border-radius: 20px;
     padding: 3px 10px;
     bottom: auto; /* Position tooltip above the button */
-    transform: translateX(-110%) translateY(-90px); /* Adjust position */
+    transform: translateX(-140%) translateY(-54px) !important; /* Adjust position: X=horizontal Y=vertical*/
     white-space: nowrap;
     box-shadow: 
         rgba(45, 35, 66, 0.2) 0px -1px 6px -1px, 
@@ -398,41 +419,6 @@ html {
     pointer-events: none;
 }
 
-[data-title] {
-    position: relative;
-}
-
-/* TOOLTIP */
-
-[data-title]:hover::after {
-    opacity: 1;
-    transition: all 0.1s ease 0.2s;
-    visibility: visible;
-}
-[data-title]::after {
-    content: attr(data-title);
-    background-color: #FCFCFD;
-    color: #36395A;
-    font-size: 80%;
-    position: absolute;
-    width: fit-content;
-    border-radius: 20px;
-    padding: 3px 10px;
-    bottom: auto;
-    left: 50%;
-    transform: translateX(-110%) translateY(-90px);
-    white-space: nowrap;
-    box-shadow: 
-        rgba(45, 35, 66, 0.2) 0px -1px 6px -1px, 
-        rgb(201, 201, 221) 0px 3px 8px -4px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-[data-title] {
-    position: relative;
-}
 
 /* Adjustments for mobile devices */
 /* 471-768px */

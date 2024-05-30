@@ -7,6 +7,7 @@ function toggleDarkMode() {
     // Save the preference in localStorage
     const darkModeStatus = document.documentElement.classList.contains(darkModeClass) ? 'enabled' : 'disabled';
     localStorage.setItem('darkMode', darkModeStatus);
+    console.log('Dark mode toggled:', darkModeStatus);
 }
 
 // Function to load the user's dark mode preference

@@ -9,26 +9,18 @@
     <link rel="stylesheet" href="styles.css">
 
 <!-- #region DARK MODE (quick-startup script) -->
-    <title>Dark Mode</title>
-    <style>
-        html {
-            filter: invert(0);
-            transition: filter 0.3s ease-in-out;
-        }
-
-        .dark-mode {
-            filter: invert(1);
-        }
-    </style>
     <script>
         // Immediately apply dark mode based on saved preference
         (function() {
             if (localStorage.getItem('darkMode') === 'enabled') {
                 document.documentElement.classList.add('dark-mode');
+                console.log('Dark mode applied on page load');
             }
         })();
     </script>
+
 <!-- #endregion DARK MODE (quick-startup script) -->
+
 <!-- #region Google Analytics -->
 	<!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SBQ15BLV29"></script>
@@ -42,33 +34,30 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <img src="accio-books.png" class="accio-header" alt="site Header titled '✨Accio Books!' in a cute font" width="84%" style="margin-right: 3vw;">
-        </header>
+        <header class="accio-header no-invert">
+            <img src="accio-books_blue_nospace_1268.png" class="no-invert" alt="site Header titled 'Accio Books!' in a cute font">
+        </header>  
 <!-- #region ::: LINKED SITES LIST ::: -->
 <div style="margin-top: 20px;"></div>
-<div class="carousel-container">
-	<div class="carousel">
-	<div class="carousel-item">Goodreads</div>
-	<div class="carousel-item">Storygraph</div>
-	<div class="carousel-item">Romance.io</div>
-	<div class="carousel-item">Bookbub</div>
-	<div class="carousel-item">Amazon Kindle</div>
-	<div class="carousel-item">Audible</div>
-	<div class="carousel-item">Goodreads</div>
-	<div class="carousel-item">Storygraph</div>
-	<div class="carousel-item">Romance.io</div>
-	<div class="carousel-item">Bookbub</div>
-	<div class="carousel-item">Amazon Kindle</div>
-	<div class="carousel-item">Audible</div>
-	<!-- Duplicate items to ensure seamless looping -->
-	</div>
+<div class="sites-list">
+    <span>Goodreads</span><!--
+    --><span>Storygraph</span><!--
+    --><span>Romance.io</span><!--
+    --><span>BookBub</span><!--
+    --><span>Amazon Kindle</span><!--
+    --><span>Audible</span><!--
+    --><span>Barnes & Noble</span><!--
+    --><span>Kobo</span><!--
+    --><span>Apple</span><!--
+    --><span>Google Play</span><!--
+    --><span>more coming soon!</span>
 </div>
-
 <!-- #endregion LINKED SITES LIST -->
+        
 <!-- #region ::: INTRO TEXT ::: -->
-		<p style="letter-spacing: -0.02em; line-height: 1.4; font-weight: 500; color: #4b4e6c;">Looking for your next great read? Assemble all your favorite book sites with just one tap, and save more time for reading!</p>
+		<p>Looking for your next great read? Assemble all your favorite book sites with just one tap, and save more time for reading!</p>
 <!-- #endregion INTRO TEXT -->
+        
 <!-- #region ::: SEARCH FORM AREA ::: -->
 		<form id="searchForm">
 			<label for="bookTitle">
@@ -285,7 +274,7 @@
             <p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
                 <span>Hey there! This search tool is a labor of love—I hope you find it helpful! Please <a href="https:/accio-books.com/learnmore.html">click here</a> to
                     learn more about Accio-Books.com's features, including FAQs, fun facts, tips and trick, affiliate
-                    details, and contact info.Thanks and happy reading 📚!
+                    details, and contact info. Thanks and happy reading 📚!
                 </span>
             </p>
             <p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
@@ -296,8 +285,8 @@
             <!-- #endregion ::: FOOTER TEXT AREA ::: -->
         </footer>
 <!-- #region ::: DARK MODE DOT JS LINK ::: -->
-	</div>
 	<script src="darkmode.js" defer></script>
 <!-- #endregion ::: DARK MODE DOT JS LINK ::: -->
+	</div>
 </body>
 </html>
