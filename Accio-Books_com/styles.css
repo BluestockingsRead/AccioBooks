@@ -4,28 +4,52 @@
 /*#region ::: BASICS ::: */
 
 html {
-    padding: 0 3%;
-    background-color: #efeef7;
+    height: 100%; /* reference for body's %-based height */
 }
 
 body {
-    max-width: 750px;
+    min-width: 100%;
     min-height: 100vh;
-    display: flex;
     position: relative;
-    justify-content: center; /* centers horizontally */
-    align-items: flex-start; /* centers vertically */
-    margin: auto;
-    padding: 5px 5px;
-    background-color: #fefeff;
-    font-family: 'Roboto Slab', sans-serif;
-    box-shadow: #000000b8 0 .2em 1em;
+    margin: 0; 
+    padding: 0; 
 }
 
-.container {
-    width: 99%;
-    text-align: center;
+/* decorative background */
+body::before {
+    content: "";
+    position: absolute;
+    z-index: -1; /* Puts pseudo-element behind content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 0% 50%, transparent 20%, #4b4e6c8f 21% 28%, transparent 29%),
+        radial-gradient(circle at 50% 50%, transparent 20%, #4b4e6c1a 21% 28%, transparent 29%),
+        radial-gradient(circle at 100% 50%, transparent 20%, #4b4e6c8f 21% 28%, transparent 29%);
+    background-size: 115px 65px; /* test background */
+    filter: blur(1px); /* test filter */
 }
+
+/* all main content */
+.container {
+    max-width: 750px;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+    margin: auto;
+    padding: 5px 5px;
+    font-family: 'Roboto Slab', sans-serif;
+    background-color: #fefeff;
+    box-shadow: #000000b8 0 0.2em 1em;
+}
+
 /* Accio Books! header in Symphony font */
 .accio-header img {
     display: inline-block;
@@ -41,8 +65,10 @@ body {
 }
 
 p {
-    padding: 1.5em 2em;
+    width: 85%;
+    padding: 1em 0;
     text-align: justify;
+    font-size: 1.25em; 
     letter-spacing: -0.02em;
     line-height: 1.4;
     font-weight: 500;
@@ -50,6 +76,16 @@ p {
     background-color: inherit;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+/* PARAGRAPH mobile view - 0px-470px */
+@media (max-width:470px) {
+    p {
+        width: 90%;
+        padding: .5em 0 1.5em 0;
+        font-size: 1em; 
+    }
 }
 
 /* CURSOR OVERRIDES */
@@ -70,14 +106,28 @@ a {
 
 /*#region ::: LINKED SITES LIST ::: */
 
-/* For book reviews,etc. Keeps tropes together, prevents line breaks */
+/* keeps full names together, prevents line breaks */
 .sites-list {
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.1;
+    margin-top: 1em;
+    margin-left: 0.7em;
+    margin-right: 0.7em;
+    margin-bottom: 1em;
+    line-height: 1.35;
     max-width: 100%;
     white-space: normal;/* Allow wrapping */
     word-break: keep-all;/* Prevent breaking within words */
+}
+
+/*  SITES LIST mobile view - 0px-470px */
+@media (max-width:470px) {
+    .sites-list {
+    margin-top: 0.4em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    line-height: 1.05;
+    max-width: 100%;
+    }
 }
 
 .sites-list span {
@@ -86,7 +136,7 @@ a {
     position: relative;
     text-align: center;
     font-style: italic;
-    font-size: 0.80em !important;
+    font-size: 0.90em !important;
     letter-spacing: .04rem;
     color: #70738F;
 }
@@ -105,62 +155,70 @@ a {
 
 /*#region ::: SEARCH FORM AREA ::: */
 
+#searchform {
+    position: relative;
+}
 /* Positioning for text entry box */
 .searchInputWrapper {
     position: relative;
+    display: block;
 }
-
-/* Normal state */
+/* SEARCH BAR Normal state */
 .searchInputWrapper input[type="text"] {
     height: 3em;
-    width: 95%;
+    width: 85%;
     padding: 10px 20px;
     padding-inline: 20px;
     font-size: 16px;
     color: #36395A;
-    background-color: #e9e3f542; /* vs #fff; */
+    background-color: #e9e3f542;
+    /* vs #fff; */
     border: 1px solid #D6D6E7;
     border-radius: 8px;
     transition: box-shadow .15s, transform .15s;
     box-sizing: border-box;
-    box-shadow: rgba(45, 35, 66, 0.2) 0 1px 4px,
-                rgba(45, 35, 66, 0.1) 0 3px 13px -3px;
+    box-shadow: rgba(45, 35, 66, 0.2) 0 1px 4px, rgba(45, 35, 66, 0.1) 0 3px 13px -3px;
+    display: block;
+    margin: 0 auto;
 }
-
+/* SEARCH BAR  mobile 0px-470px */
+@media (max-width:470px) {
+    .searchInputWrapper input[type="text"] {
+        height: 3em;
+        width: 95%;
+        padding: 10px 20px;
+        padding-inline: 20px;
+        font-size: 16px;
+    }
+}
 /* Hover state */
 .searchInputWrapper input[type="text"]:hover {
-    box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,
-                rgba(45, 35, 66, 0.1) 0 7px 13px -3px,
-                rgba(45, 35, 66, 0.2) 0px 1px 4px -2px inset,
-                rgba(45, 35, 66, 1) 0 -2px 7px -5px inset,
-                rgba(214, 214, 231, .4) 0 -1px 0 inset;
+    box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px, rgba(45, 35, 66, 0.1) 0 7px 13px -3px, rgba(45, 35, 66, 0.2) 0px 1px 4px -2px inset, rgba(45, 35, 66, 1) 0 -2px 7px -5px inset, rgba(214, 214, 231, .4) 0 -1px 0 inset;
 }
-
 /* Focus state */
 .searchInputWrapper input[type="text"]:focus {
-    outline: none; 
+    outline: none;
     /* Removing default outline for better focus styling */
-    box-shadow: #D6D6E7 0 0 0 1.5px inset,
-                rgba(45, 35, 66, 0.4) 0 -2px 4px inset,
-                rgba(45, 35, 66, 0.3) 0 -1px 13px -3px inset,
-                #D6D6E7 0 3px 0 inset;
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 -2px 4px inset, rgba(45, 35, 66, 0.3) 0 -1px 13px -3px inset, #D6D6E7 0 3px 0 inset;
 }
-
 /* When typing text */
 .searchInputWrapper:focus-within input[type="text"] {
-    background-color: 
-        #efeff6;
-    box-shadow: 
-        rgba(45, 35, 66, 0.4) 0 -2px 4px,
-        rgba(45, 35, 66, 0.4) 0 3px 4px,
-        rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
-        #c8cadc99 0 -1px 0 inset;
+    background-color: #efeff6;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 -2px 4px, rgba(45, 35, 66, 0.4) 0 3px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #c8cadc99 0 -1px 0 inset;
 }
 
-/* Search 'Accio Books' button positioning */
 .searchButton {
-	padding: 1.2em 1.25em;
-	text-align: right;
+    width: 85%;
+    text-align: right;
+    display: block;
+    margin: 15px auto 0;
+}
+
+/* SEARCH BUTTON mobile 0px-470px */
+@media (max-width: 470px) {
+    .searchButton {
+        width: 95%;
+    }
 }
 
 /* Search 'Accio Books' button styling */
@@ -188,50 +246,46 @@ input[type="submit" i] {
     position: relative;
     text-align: right;
     text-decoration: none;
-    transition: 
-        box-shadow .15s, 
-        transform .15s;
+    transition: box-shadow .15s, transform .15s;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow, transform;
     font-size: 16px;
-    box-shadow: 
-        rgba(45, 35, 66, 0.4) 0 2px 4px, 
-        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, 
-        #D6D6E7 0 -3px 0 inset;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
-
-/* Search button Focus */
-input[type="submit" i]:focus {
-    outline:none;
-    box-shadow: 
-        #D6D6E7 0 0 0 1.5px inset, 
-        rgba(45, 35, 66, 0.4) 0 2px 4px, 
-        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, 
-        #D6D6E7 0 -3px 0 inset;
-}
-
-/* Search button Hover */
-input[type="submit" i]:hover {
-    transform: translateY(2px);
-    box-shadow: 
-        rgba(45, 35, 66, 0.4) 0 4px 8px, 
-        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, 
-        #D6D6E7 0 -3px 0 inset;
-}
-
-/* Search button Active */
-input[type="submit" i]:active {
-    transform: translateY(2px);
-    box-shadow: 
-        #D6D6E7 0 3px 7px inset;
-}
+    /* Search button Focus */
+    input[type="submit" i]:focus {
+        outline: none;
+        box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    }
+    /* Search button Hover */
+    input[type="submit" i]:hover {
+        transform: translateY(2px);
+        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    }
+    /* Search button Active */
+    input[type="submit" i]:active {
+        transform: translateY(2px);
+        box-shadow: #D6D6E7 0 3px 7px inset;
+    }
 
 /*#endregion ::: SEARCH FORM AREA ::: */
 
 /*#region ::: SEARCH RESULTS ::: */
+
+/* Results HEADER Styling */
+#results-container {
+    margin-top: 20px;
+}
+
+#results-header {
+    display: none;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
 /* Results Styling */
 #results {
     margin: 50px 3vw;
