@@ -5,8 +5,10 @@
 
 html {
     height: 100%; /* reference for body's %-based height */
+    min-height: 100vh;
 }
 
+/* same dimensions for html+body */
 body {
     min-width: 100%;
     min-height: 100vh;
@@ -78,7 +80,6 @@ p {
     margin-right: auto;
 }
 
-
 /* PARAGRAPH mobile view - 0px-470px */
 @media (max-width:470px) {
     p {
@@ -88,16 +89,20 @@ p {
     }
 }
 
+/* LINK OVERRIDES */
+/* removes underline by default */
+a {
+    text-decoration: none;
+}
+
 /* CURSOR OVERRIDES */
 
 body, div, p {
     cursor: default;
 }
-
 .button-class {
     cursor: pointer;
 }
-
 a {
     cursor: pointer;
 }
@@ -155,9 +160,6 @@ a {
 
 /*#region ::: SEARCH FORM AREA ::: */
 
-#searchform {
-    position: relative;
-}
 /* Positioning for text entry box */
 .searchInputWrapper {
     position: relative;
@@ -172,7 +174,6 @@ a {
     font-size: 16px;
     color: #36395A;
     background-color: #e9e3f542;
-    /* vs #fff; */
     border: 1px solid #D6D6E7;
     border-radius: 8px;
     transition: box-shadow .15s, transform .15s;
@@ -207,19 +208,6 @@ a {
     box-shadow: rgba(45, 35, 66, 0.4) 0 -2px 4px, rgba(45, 35, 66, 0.4) 0 3px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #c8cadc99 0 -1px 0 inset;
 }
 
-.searchButton {
-    width: 85%;
-    text-align: right;
-    display: block;
-    margin: 15px auto 0;
-}
-
-/* SEARCH BUTTON mobile 0px-470px */
-@media (max-width: 470px) {
-    .searchButton {
-        width: 95%;
-    }
-}
 
 /* Search 'Accio Books' button styling */
 input[type="submit" i] {
@@ -243,9 +231,9 @@ input[type="submit" i] {
     overflow: hidden;
     padding-left: 14px;
     padding-right: 14px;
+    padding: 10px;
     position: relative;
     text-align: right;
-    text-decoration: none;
     transition: box-shadow .15s, transform .15s;
     user-select: none;
     -webkit-user-select: none;
@@ -253,23 +241,116 @@ input[type="submit" i] {
     white-space: nowrap;
     will-change: box-shadow, transform;
     font-size: 16px;
-    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 10px -3px, #D6D6E7 0 -3px 0 inset;
 }
-    /* Search button Focus */
-    input[type="submit" i]:focus {
-        outline: none;
-        box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    }
-    /* Search button Hover */
-    input[type="submit" i]:hover {
-        transform: translateY(2px);
-        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    }
-    /* Search button Active */
-    input[type="submit" i]:active {
-        transform: translateY(2px);
-        box-shadow: #D6D6E7 0 3px 7px inset;
-    }
+
+/* Search button Focus */
+input[type="submit" i]:focus {
+    outline: none;
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+/* Search button Hover */
+input[type="submit" i]:hover {
+    transform: translateY(2px);
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+/* Search button Active */
+input[type="submit" i]:active {
+    transform: translateY(2px);
+    box-shadow: #D6D6E7 0 3px 7px inset;
+}
+
+#searchform {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Horizontally center the flex container */
+    align-items: center;
+    transform: translateX(-50%);
+}
+
+/* CHECKBOX NEW TAB */
+/* Whole area */
+.check-tab {
+    color: #36395A;
+    cursor: pointer;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    word-spacing: -0.1em;
+    justify-content: left;
+}
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 25px; height: 25px;
+    border: 3px solid #a5a7b6;
+    background: #f2f2fa;
+    border-radius: 15px;
+    box-shadow: inset -1px -1px 5px #3b3c423d;
+    transition: all .2s;
+}
+
+[type="checkbox"]:not(:checked) + label:hover:before,
+[type="checkbox"]:checked + label:hover:before {
+    box-shadow: inset 0 0 5px 0 #9a9cad;
+}
+    
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+    content: '✔';
+    position: absolute;
+    top: 0; left: 6px;
+    font-size: 30px;
+    line-height: 1;
+    color: #222d6f;
+    transition: all .2s;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* flexbox row for checkbox and search button */
+.search-flexbox {
+    display: flex; /* Ensure flexbox is used */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    padding: 1em;
+    width: 85%;
+    justify-content: space-between;
+    align-items: center;
+    appearance: none;
+}
 
 /*#endregion ::: SEARCH FORM AREA ::: */
 
@@ -328,7 +409,6 @@ input[type="submit" i] {
 .result-url--mono,
 .result-url--referral {
     font-size: 1.25em;
-    text-decoration: none;
     color: #343daf;
     flex-grow: 1;
     font-weight: 600;
@@ -359,7 +439,6 @@ input[type="submit" i] {
 
 .result-url--non-referral {
     /* Styles for non-referral URL */
-    text-decoration: none;
     letter-spacing: -0.04em;
     font-size: .9em;
     font-weight: 100;
@@ -368,7 +447,6 @@ input[type="submit" i] {
 /*#endregion ::: SEARCH RESULTS ::: */
 
 /*#region ::: DARK MODE ::: */
-/* Your existing CSS here */
 
 html {
     filter: invert(0);
@@ -589,12 +667,43 @@ html {
 /*#endregion ::: FONTS ::: */
 
 /* :::::::::: */
-/*#region ::: LEARNMORE.HTML ::: */
+/*#region ::: FAQ.HTML ::: */
 
-/* checkmark list */
-ul {
+/* FAQ list */
+
+ul.faq {
+    column-count: 2;
+    column-gap: 2.5em; 
+    padding: 0px 2em;
+
+}
+
+@media (max-width: 600px) {
+    ul.faq {
+        column-count: 1;
+    }
+}
+
+li.faq {
+    text-align: left;
+    list-style: outside;
+    margin-bottom: 1.5em;
+}
+
+ul.checkmark {
     list-style-type: none;
-    /* Removes bullet points */
+}
+
+li.checkmark::before {
+    content: "\2713";
+    /* Adds a check mark before each list item */
+    color: green;
+    padding-right: 8px;
+    /* Adds space between the bullet and the text */
+}
+
+ul .checkmark {
+    list-style-type: none;
 }
 
 ul li.checkmark::before {
@@ -605,43 +714,84 @@ ul li.checkmark::before {
     /* Adds space between the bullet and the text */
 }
 
-
-/*#endregion ::: LEARNMORE.HTML ::: */
-
-/*#region ::: FUNNY ::: */
-
-/* Pretty sure I'm hilarious!
-
-.tbr-pile::before {
-  content: "Warning: ";
-  font-weight: bold;
+/*#region H1 FANCY FLEXIBLE - also see HTML */
+h1 {
+    text-align: center;
+    font-size: 1.8em;
+    max-width: 100%;
+    margin: 0.5em;
+    padding: 0;
 }
 
-.tbr-pile {
-  height: 90vh;
-  overflow: visible;
-  transform: scale(1.1);
-  transition: transform 0.5s ease-in-out;
-  content: "I will definitely read these soon... probably.";
-  background: url('bookshelf-infinity.jpg');
-  animation: grow 10s infinite;
+/* 0px-470px */
+@media (max-width:470px) {
+    h1 {
+        font-size: initial;
+    }
+
+    .svg-text {
+        display: inline-block;
+    }
+
+    .plain-text {
+        display: none !important;
+    }
+}
+/* 471px - Desktop */
+@media (min-width: 471px) {
+    .svg-text {
+        display: none !important;
+    }
 }
 
-.tbr-pile:hover {
-  transform: scale(1.2);
-  content: "Just added five more books! (Oh no, here comes ten more!)";
+
+/*#endregion H1 FANCY FLEXIBLE - also see HTML */
+
+
+h2 {
+    font-size: 1.3em;
 }
 
-.tbr-pile:after {
-  content: "...and counting";
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  font-size: 2rem;
+h3 {
+    font-size: 1em;
 }
 
-@keyframes grow {
-  0% { transform: scale(1.1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1.1); }
-}*/
+.question {
+    text-align: left;
+    margin-bottom: 2.5em;
+}
+
+.answer {
+    text-align: left;
+    margin-bottom: 3em;
+}
+
+.question:first-letter {
+    float: left;
+    font-size: 2.5em;
+    line-height: 1;
+    font-weight: bold;
+    font-style: italic;
+    color: #5d1b15;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin-right: 9px;
+}
+
+
+.answer:first-letter {
+    float: left;
+    font-size: 2.5em;
+    line-height: 1;
+    font-weight: bold;
+    font-style: italic;
+    color: #1b155d;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    margin-right: 9px;
+}
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+/*#endregion ::: FAQ.HTML ::: */
