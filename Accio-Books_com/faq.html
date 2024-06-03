@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accio Books! - Your one-stop search tool for all your favorite book sites.">
+    <title>Accio Books | FAQ</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+
+<!-- #region DARK MODE (quick-startup script) -->
+    <script>
+        // Immediately apply dark mode based on saved preference
+        (function() {
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.documentElement.classList.add('dark-mode');
+                console.log('Dark mode applied on page load');
+            }
+        })();
+    </script>
+<!-- #endregion DARK MODE (quick-startup script) -->
+
+<!-- #region Google Analytics -->
+	<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SBQ15BLV29"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-SBQ15BLV29');
+</script>
+<!-- #endregion Google Analytics -->
+</head>
+<body>
+    <div class="container">
+        <header class="accio-header no-invert">
+            <img src="images/accio-books_blue_nospace_1268.png" class="no-invert" alt="Site Header titled 'Accio Books!' in a cute font">
+        </header>  
+
+        <!-- start Fancy Flexible Header - also see CSS -->
+        <h1>
+        <span class="plain-text" aria-hidden="false">Welcome to Accio-Books.com!</span>
+        <svg class="svg-text" aria-hidden="true" width="100%" height="100%" viewBox="0 0 500 60" preserveAspectRatio="xMidYMid meet">
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" style="font-size: 1.8em;">
+                Welcome to Accio-Books!
+            </text>
+        </svg>
+    </h1>
+    <!-- end Fancy Flexible Header - also see CSS -->
+    
+        <h3 style="text-align: center;"><em>Curious about this site and how it works?<br>You're in the right spot!</em></h3>
+
+<!-- #region ::: FAQ List ::: -->
+        <ul class="faq">
+            <li class="faq"><a href="#q1">What is <em>Accio Books?</em></a></li>
+            <li class="faq"><a href="#q2">Why did you make this site?</a></li>
+            <li class="faq"><a href="#q3">How do I search Accio Books?</a></li>
+            <li class="faq"><a href="#q4">Is this service free?</a></li>
+            <li class="faq"><a href="#q5">Can you see my searches?</a></li>
+            <li class="faq"><a href="#q6">Tell me more about affiliate links.</a></li>
+            <li class="faq"><a href="#q7">Are you endorsing these sites? Do these companies sponsor you?</a></li>
+            <li class="faq"><a href="#q8">Any tips, tricks, or cool hacks for using this site?</a></li>
+            <li class="faq"><a href="#q9">What does <em>Accio Books</em> mean?</a></li>
+            <li class="faq"><a href="#q10">Will you be adding more features?</a></li>            
+            <li class="faq"><a href="#q11">I'm only interested in a few sites. When I search here, will I be hammering all those other sites with search requests?</a></li>
+
+            <li class="faq"><a href="#q12">I have a question not listed here.</a></li>
+        </ul>
+        <div style="margin: 40px;"></div>
+        <!-- #endregion ::: FAQ List ::: -->
+
+        <!-- #region ::: FAQ CONTENT ::: -->
+        <div class="faq-content">
+            <div id="q1">
+                <div class="question">Q. What is <em>Accio Books?</em></div>
+                <div class="answer">A. <a href="https://www.accio-books.com">Accio-Books.com</a> is a one-stop search tool for all your favorite book sites. By summoning links to all your favorite sites in one place, it helps you find the books you love quicker.
+                        <br><a href="#top" class="back2-top">⮬ back to top</a>
+                </div>
+            </div>
+
+            <div id="q2">
+                <div class="question">Q. Why did you make this site?</div>
+                <div class="answer">A. As an <s>obsessed</s> <em>avid</em> bookworm, I spent way too much time hopping between book sites. For a single book, I often find myself going to:
+                    <ul class="faq-answerlists">
+                        <li class="faq-answerlists">
+                            <strong><a href="https://www.goodreads.com/" rel="noopener"></a>Goodreads</a></strong> because they have the most reviews <em>(and lots of my book friends! 👋)</em>
+                        </li>
+                        <li class="faq-answerlists">
+                            <strong><a href="https://app.thestorygraph.com/" rel="noopener">StoryGraph</a></strong> because they excel at content warnings.
+                        </li>
+                        <li class="faq-answerlists">
+                            <strong><a href="https://www.romance.io/" rel="noopener">Romance.io</a></strong> because they excel at tropes.
+                        </li class="faq-answerlists">
+                        <li class="faq-answerlists">
+                            I also love a bargain, so I'm <em>also</em> checking the best deals at <a href="https://www.amazon.com/" rel="noopener">Amazon</a>, <a href="https://www.barnesandnoble.com/" rel="noopener">Barnes & Noble</a>, <a href="https://www.audible.com/" rel="noopener">Audible</a>, <a href="https://www.kobo.com/" rel="noopener">Kobo</a>, <a href="https://www.apple.com/apple-books/" rel="noopener">Apple Books</a>, <a href="https://play.google.com/books" rel="noopener">Google Play Books</a>, <a href="https://www.bookbub.com" rel="noopener">BookBub</a>,... you get the idea 🤪.
+                        </li>
+                    </ul>
+                    <p>But going to each site and searching <em>the same freaking book title</em> over and over quickly gets tedious.</p>
+                    <p>I eventually made a little bookmarklet to pre-search these sites for me. I <strong>loved</strong> that little thing, and happily used it many months. But it had a few drawbacks that I knew would frustrate the average user. Even after writing an extensive tutorial on my <a href="https://bluestockingsread.com/" rel="noopener">blog</a>, I kept hesitating to publish it because it just wasn't as accessible and user-friendly as I wanted.</p>
+                    <p>Then I realized I could solve all those obstacles if I just turned my bookmarklet into a website. This gave me the flexibility to provide a handy tool that's:</p>
+                    <ul class="checkmark">
+                        <li class="checkmark">Easy to use</li>
+                        <li class="checkmark">Optimized for Mobile</li>
+                        <li class="checkmark">Designed for accessibility</li>
+                        <li class="checkmark">Has a built-in Dark Mode toggle</li>
+                        <li class="checkmark">And even sends you to the right Amazon store for your country!</li>
+                    </ul>
+                    <p>I'm really excited to finally tell you all about it, and I would love to hear your feedback and suggestions.
+                        <br><a href="#top" class="back2-top">⮬ back to top</a></p>
+                </div>          
+            </div>
+
+            <div id="q3">
+        <div class="question">Q. How do I search Accio-Books?</div>
+        <div class="answer">A. Just type in the book you're looking for, hit the 'Accio Books!' button, and we'll fetch results from all your favorite book sites in one go.
+            <br><a href="#top" class="back2-top">⮬ back to top</a></div>
+        </div>
+
+        <div id="q4">
+        <div class="question">Q. Is this service free?</div>
+                <div class="answer">A. Absolutely! Accio-Books is completely free to use. While I may earn a small commission from affiliate links, it won't cost you extra.
+            <br><a href="#top" class="back2-top">⮬ back to top</a></div>
+        </div>
+
+        <div id="q5">
+                <div class="question">Q. Can you see my searches?</div>
+                <div class="answer">A. Nope! Accio-Books believes in transparency and respects your privacy. Like most sites, there are basic Google Analytics, but GA doesn't provide any identifying info. And all the code and files for this site are available for your perusal on <a href="https://github.com/BluestockingsRead/AccioBooks/tree/main" rel="noopener">GitHub</a>.
+            <br><a href="#top" class="back2-top">⮬ back to top</a></div>
+        </div>
+
+        <div id="q6">
+        <div class="question">Q. Tell me more about affiliate links.</div>
+                <div class="answer" id="affiliate-info">A. Affiliate links (also called referral links) are an easy way to help support this site, and other cool tools I'm developing for readers. When you click on an affiliate link on my site, it tells the retailer that you came from here. If you make a purchase, I receive a small commission at no extra cost to you. Your personal information isn't shared, and this tracking only applies to your interactions with the retailer's site, not your overall web activity. However, non-affiliate options are always provided for your convenience. Either way, I value your choice and privacy!
+            <br><a href="#top" class="back2-top">⮬ back to top</a></div>
+        </div>
+
+        <div id="q7">
+        <div class="question">Q. Are you endorsing these sites? Do these companies sponsor you?</div>
+        <div class="answer">A. Nope, no endorsements! I just love reading, and wanted to make it easier for fellow book lovers to search their favorite sites all in one go. 
+                    <br><a href="#top" class="back2-top">⮬ back to top</a></div>
+        </div>
+        <div id="q8">
+            <div class="question">Q. Any tips, tricks, or cool hacks for using this site?</div>
+            <div class="answer">A. If you type the ISBN or ASIN number directly, it will take you directly to the Goodeads book page. (This seems to only work on Goodreads.)
+                <br><em>Hint:</em> This tool pairs great with the TabCopy extension. <a href="https://bluestockingsread.com/2023/10/17/automagically-add-goodreads-romanceio-links-for-reddit/" rel="noopener">( Read more about it here!)</a> 
+            <br><a href="#top" class="back2-top">⮬ back to top</a></div>
+
+        <div id="q9">
+            <div class="question">Q. What does <em>Accio Books</em> mean?</div>
+            <div class="answer">A. <em>Accio</em> is a Latin word that basically means 'fetch'. <span style="font-size: 13px;">(I will never stop trying to make fetch happen!)</span> <em>Accio</em> is also a summoning charm. Sadly, I'm still waiting on my letter from Hogwarts, so this site will have to do the magic ✨.
+        <br><a href="#top" class="back2-top">⮬ back to top</a></div>
+
+        </div>
+        <div id="q10">
+        <div class="question">Q. Will you be adding more features?</div>
+        <div class="answer">A. Definitely! I have a whole list of ideas, but I need your input. Contact me at one of the links at the end, and let me know what you'd like to see next!
+            <br><a href="#top" class="back2-top">⮬ back to top</a></div>
+    
+        <div id="#q11">
+            <div class="question">Q. I'm only interested in a few sites. When I search here, will I be hammering all those other sites with search requests?</div>
+            <div class="answer">A. No! None of the sites here get any traffic until you click on a result and your page opens up. All my search tool does is take your keywords, and the site's address, and smush them together to create your link. (If you've ever used the words <em>Cosplay, Glamping, Jeggings,</em> or <em>Reylo,</em> then you're already familiar with the basic concept 😅.)
+                <br><a href="#top" class="back2-top">⮬ back to top</a></div>
+            </div>
+        </div>
+        <div id="q12">
+        <div class="question">Q. I have a question not listed here.</div>
+        <div class="answer">A. Got more questions, or just want... more?</div>
+        <ul class="faq-answerlists">
+        <li>Shoot me an email at <strong><a href="mailto:accioreads.com@gmail.com">accioreads.com@gmail.com</a>.</strong></li>
+        <li>Deep dive at my blog, <a href="https://bluestockingsread.com/" rel="noopener">Bluestockings Read</a></li>
+        <li>Find me on my other socials at <a href="https://beacons.ai/bluestocking">Beacons</a>.</li>
+                </ul>
+                <a href="#top" class="back2-top">⮬ back to top</a></div>
+        </div>
+
+        <p class="info-box" id="amazon-disclosure">Disclosure: As an Amazon Associate, I earn from qualifying purchases. This means if you click on a link and purchase an item, I may receive an affiliate commission at no extra cost to you. 
+            <br><a href="https://accio-books.com#results-notes" style="font-style: italic; font-size: 0.80em; font-family:Verdana, Geneva, Tahoma, sans-serif;">🠔 return to search results</a>
+        </p>
+        </div>
+        <!-- #endregion ::: FAQs ::: -->
+		<footer>
+<!-- #region ::: DARK MODE AREA ::: -->
+			<div style="margin-top: 10px;"></div>
+			<div class="dark-toggle" data-title="Toggle light and dark mode">
+				<button id="dark-mode-toggle" aria-label="Toggle light and dark mode">
+					<img src="images/darkmode_sun_moon.png" alt="Toggle between light and dark mode" width="42" height="21">
+				</button>
+			</div>
+			<hr>
+<!-- #endregion ::: DARK MODE ::: -->
+
+<!-- #region ::: FOOTER TEXT AREA ::: -->
+            <p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
+                <span>Hey there! This search tool is a labor of love—I hope you find it helpful! Please <a href="https://accio-books.com/">click here</a> to return to the Search page. Happy reading 📚!
+                </span>
+            </p>
+            <p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
+                <span>- Kacie <a href="mailto:acciobooks.com@gmail.com">(email)</a> Also check out my bookish blog at <a href="https://bluestockingsread.com/">BluestockingsRead.com</a>!
+                </span>
+            </p>
+            <!-- #endregion ::: FOOTER TEXT AREA ::: -->
+        </footer>
+        
+<!-- #region ::: DARK MODE DOT JS LINK ::: -->
+	<script src="js/darkmode.js" defer></script>
+<!-- #endregion ::: DARK MODE DOT JS LINK ::: -->
+	</div>
+</body>
+</html>
