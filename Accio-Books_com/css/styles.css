@@ -1,0 +1,872 @@
+/* ::: ACCIO-BOOKS.COM CSS ::: */
+/* :::::::::::::::::::: */
+
+/*#region ::: BASICS ::: */
+
+html {
+    height: 100%; /* reference for body's %-based height */
+    min-height: 100vh;
+    background-color: white;
+}
+
+/* same dimensions for html+body */
+body {
+    min-width: 100%;
+    min-height: 100vh;
+    position: relative;
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+/* decorative background */
+body::before {
+    content: "";
+    position: absolute;
+    z-index: -1; /* Puts pseudo-element behind content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: opacity(50%);
+    background: rgb(252,255,224);
+    background: linear-gradient(333deg, rgba(252,255,224,0.8211659663865546) 0%, rgba(219,227,214,0.7539390756302521) 16%, rgba(219,227,214,0.6811099439775911) 33%, rgba(243,247,221,0.8939950980392157) 60%, rgba(219,227,214,0.6278886554621849) 89%, rgba(209,219,211,0.6194852941176471) 100%);
+}
+
+
+/* all main content */
+.container {
+    max-width: 750px;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+    margin: auto;
+    padding: 5px 5px;
+    font-family: 'Roboto Slab', sans-serif;
+    background-color: #fefeff;
+    box-shadow: #000000b8 0 0.2em 1em;
+}
+
+/* Accio Books! header in Symphony font */
+.accio-header img {
+    display: inline-block;
+    position: relative;
+    width: 65%; 
+    height: auto;
+}
+
+/* 0px-470px */
+@media (max-width:470px) {
+    .accio-header img {
+        width: 99%;
+        max-width: 99%;
+    }
+}
+
+p {
+    width: 85%;
+    padding: 1em 0;
+    text-align: justify;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 1em; 
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #4b4e6c;
+    background-color: inherit;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* PARAGRAPH mobile view - 0px-470px */
+@media (max-width:470px) {
+    p {
+        width: 90%;
+        padding: .5em 0 1.5em 0;
+        font-size: 1em; 
+    }
+}
+
+/* LINK OVERRIDES */
+/* removes underline by default */
+/* Anchor Tag CSS */
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+/* embiggens on hover */
+a:hover {
+    color: #1856f9;
+    text-decoration: underline;
+    font-weight: bolder;
+    transform: translateY(-1px) scale(1.03); 
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+/* CURSOR OVERRIDES */
+body, div, p {
+    cursor: default;
+}
+.button-class, a {
+    cursor: pointer;
+}
+
+/*#endregion ::: BASICS ::: */
+
+/*#region ::: LINKED SITES LIST ::: */
+
+/* keeps full names together, prevents line breaks */
+.sites-list {
+    margin-top: 1em;
+    margin-left: 0.7em;
+    margin-right: 0.7em;
+    margin-bottom: 1em;
+    line-height: 1.35;
+    max-width: 100%;
+    white-space: normal;/* Allow wrapping */
+    word-break: keep-all;/* Prevent breaking within words */
+}
+
+/*  SITES LIST mobile view - 0px-470px */
+@media (max-width:470px) {
+    .sites-list {
+    margin-top: 0.4em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    line-height: 1.05;
+    max-width: 100%;
+    }
+}
+
+.sites-list span {
+    display: inline-block;
+    white-space: nowrap;/* Prevent breaking within each item */
+    position: relative;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.90em !important;
+    letter-spacing: .04rem;
+    color: #70738F;
+}
+
+.sites-list span::before {
+    content: ' ◦ '; /* separator used as line break point */
+    white-space: nowrap;
+}
+
+/* Remove the trailing separator for the last span */
+.sites-list span:last-child::after {
+    content: ' ◦ ';
+}
+
+/*#endregion LINKED SITES LIST */
+
+/*#region ::: SEARCH FORM AREA ::: */
+
+/* Positioning for text entry box */
+.searchInputWrapper {
+    position: relative;
+    display: block;
+}
+/* SEARCH BAR Normal state */
+.searchInputWrapper input[type="text"] {
+    height: 3em;
+    width: 85%;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #36395A;
+    background-color: #e9e3f542;
+    border: 1px solid #D6D6E7;
+    border-radius: 8px;
+    transition: box-shadow .15s, transform .15s;
+    box-sizing: border-box;
+    box-shadow: rgba(45, 35, 66, 0.2) 0 1px 4px, rgba(45, 35, 66, 0.1) 0 3px 13px -3px;
+    display: block;
+    margin: 0 auto;
+}
+/* SEARCH BAR mobile 0px-470px */
+@media (max-width: 470px) {
+    .searchInputWrapper input[type="text"] {
+        width: 95%;
+    }
+}
+/* Hover state */
+.searchInputWrapper input[type="text"]:hover {
+    box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px, rgba(45, 35, 66, 0.1) 0 7px 13px -3px, rgba(45, 35, 66, 0.2) 0px 1px 4px -2px inset, rgba(45, 35, 66, 1) 0 -2px 7px -5px inset, rgba(214, 214, 231, .4) 0 -1px 0 inset;
+}
+/* Focus state */
+.searchInputWrapper input[type="text"]:focus {
+    outline: none;
+    /* Removing default outline for better focus styling */
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 -2px 4px inset, rgba(45, 35, 66, 0.3) 0 -1px 13px -3px inset, #D6D6E7 0 3px 0 inset;
+}
+/* When typing text */
+.searchInputWrapper:focus-within input[type="text"] {
+    background-color: #efeff6;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 -2px 4px, rgba(45, 35, 66, 0.4) 0 3px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #c8cadc99 0 -1px 0 inset;
+}
+
+/* Search 'Accio Books' button styling */
+input[type="submit" i] {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 15px;
+    border-width: 0;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    word-spacing: -0.1em;
+    height: 38px;
+    justify-content: center;
+    line-height: 1;
+    overflow: hidden;
+    padding: 10px 14px;
+    position: relative;
+    text-align: right;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 1em;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 10px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+/* Search button Focus */
+input[type="submit" i]:focus {
+    outline: none;
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+/* Search button Hover */
+input[type="submit" i]:hover {
+    transform: translateY(2px);
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+/* Search button Active */
+input[type="submit" i]:active {
+    transform: translateY(2px);
+    box-shadow: #D6D6E7 0 3px 7px inset;
+}
+
+#searchform {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Horizontally center the flex container */
+    align-items: center;
+    transform: translateX(-50%);
+}
+
+/* CHECKBOX NEW TAB */
+/* Whole area */
+.check-tab {
+    color: #36395A;
+    cursor: pointer;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    word-spacing: -0.1em;
+    justify-content: left;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center; /* Center checkbox with label */
+}
+
+.check-tab input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* embiggens on hover */
+.check-tab:hover {
+    transform: translateY(0px) scale(1.03); 
+}
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    font-size: 1em;
+}
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 25px; height: 25px;
+    border: 3px solid #a5a7b6;
+    background: #f2f2fa;
+    border-radius: 15px;
+    box-shadow: inset -1px -1px 5px #3b3c423d;
+    transition: all .2s;
+}
+
+[type="checkbox"]:not(:checked) + label:hover:before,
+[type="checkbox"]:checked + label:hover:before {
+    box-shadow: inset 0 0 5px 0 #9a9cad;
+}
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+    content: '✔';
+    position: absolute;
+    top: 55%;
+    left: 6px;
+    transform: translateY(-50%);
+    font-size: 1.75em;
+    line-height: 1;
+    color: #222d6f;
+    transition: all .2s;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0) translateY(-50%);
+}
+[type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1) translateY(-50%);
+}
+
+/* flexbox row for checkbox and search button */
+.search-flexbox {
+    display: flex; /* Ensure flexbox is used */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    padding: 1em;
+    width: 85%;
+    justify-content: space-between;
+    align-items: center;
+    appearance: none;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 470px) {
+    .search-flexbox {
+        flex-direction: column;
+    }
+    .searchButton {
+        order: 1;
+        margin-bottom: 1em;
+    }
+    .check-tab {
+        order: 2;
+    }
+}
+/* checkbox label text */
+.check-tab input[type="checkbox"] + label {
+    color: #36395A;
+    font-weight: 400;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.check-tab input[type="checkbox"] + label:hover {
+    color: #222d6f;
+    font-weight: 500;
+}
+
+/*#endregion ::: SEARCH FORM AREA ::: */
+
+/*#region ::: SEARCH RESULTS ::: */
+
+/* Results HEADER Styling */
+#results-container {
+    margin-top: 20px;
+}
+
+#results-header {
+    display: none;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Results Styling */
+#results {
+    margin: 50px 3vw;
+    text-align: left;
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+/* Overall styling for both result types */
+.result-container--mono,
+.result-container--duo {
+    display: flex; /* Ensure flexbox is used */
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+    align-items: baseline;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-bottom: 1px solid #d6d6e7a8;
+    padding: 15px 5px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+/* GROUP: dot (◦), site name, and referral url (when duo) */
+.result-details--mono,
+.result-details--duo {
+    display: block; /* Force a new line */
+    flex-basis: 100%; /* Forces the details to take full width */
+    width: 100%; /* Ensures the details span the entire width */
+    margin-top: 5px; /* Adds a bit of spacing from the previous line */
+}
+
+/* Main URL styling for both result types */
+.result-url--mono,
+.result-url--referral {
+    font-size: 1.25em;
+    color: #343daf;
+    flex-grow: 1;
+    font-weight: 600;
+    transition: color .15s, transform .15s;
+}
+
+/* Hover effect for hyperlink */
+.result-url--referral:hover,
+.result-url--mono:hover {
+    color: #1856f9;
+    text-decoration: underline;
+    transform: translateY(-2px); /* Slightly more noticeable lift */
+}
+
+/* Separator dot (◦) for both result types */
+.result-separator--mono,
+.result-separator--duo {
+    font-size: 1.05em;
+    color: #7a7a7a; /* Subtle gray color for the separator */
+}
+
+/* Styling Site Name (after ◦) */
+.result-sitename--mono,
+.result-sitename--duo {
+    font-weight: 500;
+    color: #555555; /* Slightly darker color for the site name */
+}
+
+.result-url--non-referral {
+    /* Styles for non-referral URL */
+    letter-spacing: -0.04em;
+    font-size: .9em;
+    font-weight: 400;
+    color: #888888; /* Subtle gray for non-referral URL */
+}
+
+/*#endregion ::: SEARCH RESULTS ::: */
+
+/*#region ::: PAGE 2 - FAQ.HTML ::: */
+
+/* FAQ list */
+
+ul.faq {
+    column-count: 2;
+    column-gap: 2.5em; 
+    padding: 0px 2em;
+}
+
+@media (max-width: 600px) {
+    ul.faq {
+        column-count: 1;
+    }
+}
+
+li.faq {
+    text-align: left;
+    list-style: outside;
+    margin-bottom: 1.5em;
+}
+
+ul.checkmark {
+    list-style-type: none;
+}
+
+li.checkmark::before {
+    content: "\2713";
+    /* Adds a check mark before each list item */
+    color: green;
+    padding-right: 8px;
+    /* Adds space between the bullet and the text */
+}
+
+ul .checkmark {
+    list-style-type: none;
+}
+
+ul li.checkmark::before {
+    content: "\2713";
+    /* Adds a check mark before each list item */
+    color: green;
+    padding-right: 8px;
+    /* Adds space between the bullet and the text */
+}
+
+/*#region H1 FANCY FLEXIBLE - also see HTML */
+h1 {
+    text-align: center;
+    font-size: 1.8em;
+    max-width: 100%;
+    margin: 0.5em;
+    padding: 0;
+}
+
+/* 0px-470px */
+@media (max-width:470px) {
+    h1 {
+        font-size: initial;
+    }
+
+    .svg-text {
+        display: inline-block;
+    }
+
+    .plain-text {
+        display: none !important;
+    }
+}
+/* 471px - Desktop */
+@media (min-width: 471px) {
+    .svg-text {
+        display: none !important;
+    }
+}
+
+/*#endregion H1 FANCY FLEXIBLE - also see HTML */
+
+h2 {
+    font-size: 1.3em;
+}
+
+h3 {
+    font-size: 1em;
+}
+
+.question {
+    text-align: left;
+    margin-bottom: 2.5em;
+}
+
+.answer {
+    text-align: left;
+    margin-bottom: 3em;
+}
+
+/* Drop Cap Effect */
+.question:first-letter {
+    float: left;
+    font-size: 2.5em;
+    line-height: 1;
+    font-weight: bold;
+    font-style: italic;
+/*     text-shadow: rgba(0, 0, 0, 0.642) .05em .05em; */
+    color: #5d1b15;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin-right: 9px;
+}
+
+/* Drop Cap Effect */
+.answer:first-letter {
+    float: left;
+    font-size: 2.5em;
+    line-height: 1;
+    font-weight: bold;
+    font-style: italic;
+    color: #1b155d;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    margin-right: 9px;
+}
+
+  /* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/*#endregion ::: PAGE 2 - FAQ.HTML ::: */
+
+/*#region ::: DARK MODE ::: */
+
+html {
+    filter: invert(0);
+    transition: filter 0.3s ease-in-out;
+}
+
+.dark-mode {
+    filter: invert(1);
+}
+
+.dark-mode .accio-header img,
+.dark-mode .no-invert img {
+    filter: invert(1) !important;
+}
+
+/* TOGGLE BUTTON  */
+
+#dark-mode-toggle {
+    align-items: center;
+    margin-left: 3vw;
+    margin-bottom: 20px;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 20px;
+    border-width: 0;
+    box-shadow: 
+        rgba(45, 35, 66, 0.4) 0 2px 4px, 
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, 
+        #D6D6E7 0 -3px 0 inset;
+    box-sizing: content-box;
+    color: #36395A;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    padding: 7px;
+    position: relative;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: box-shadow, transform;
+    float: none;
+}
+
+.dark-toggle {
+    text-align: left;
+    clear: both;
+    /* AMAZING HACK to shrink-wrap div for tooltip hover */
+    display: contents;
+}
+
+#dark-mode-toggle:focus {
+    box-shadow: 
+        #D6D6E7 0 0 0 1.5px inset, 
+        rgba(45, 35, 66, 0.4) 0 2px 4px, 
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, 
+        #D6D6E7 0 -3px 0 inset;
+}
+
+#dark-mode-toggle:hover {
+    box-shadow: 
+        rgba(45, 35, 66, 0.4) 0 4px 8px, 
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px, 
+        #D6D6E7 0 -3px 0 inset;
+    transform: translateY(2px);
+}
+
+#dark-mode-toggle:focus,
+*:hover {
+    outline: none;
+}
+
+#dark-mode-toggle:active {
+    box-shadow: 
+        #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+/* DARK  MODE TOOLTIP */
+
+[data-title]::after {
+    content: attr(data-title);
+    background-color: #FCFCFD;
+    color: #36395A;
+    font-size: 80%;
+    position: absolute;
+    width: fit-content;
+    border-radius: 20px;
+    padding: 3px 10px;
+    bottom: auto; /* Position tooltip above the button */
+    transform: translateX(-125%) translateY(-54px) !important; /* Adjust position: X=horizontal Y=vertical */
+    white-space: nowrap;
+    box-shadow: 
+        rgba(45, 35, 66, 0.2) 0px -1px 6px -1px, 
+        rgb(201, 201, 221) 0px 3px 8px -4px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s, visibility 0.3s; /* Add transition for smooth visibility change */
+}
+
+/* Show the tooltip on hover */
+[data-title]:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Adjustments for mobile devices */
+/* 471-768px */
+@media (max-width: 768px) {
+    [data-title]::after {
+        transform: translateX(-75%) translateY(-52px)!important;
+    }
+}
+
+/* 410px-470px */
+@media (max-width: 470px) {
+    [data-title]::after {
+        transform: translateX(-60%) translateY(-50px)!important;
+    }
+}
+
+/* 371px-410px */
+@media (max-width: 410px) {
+    [data-title]::after {
+        transform: translateX(-50%) translateY(-50px)!important;
+    }
+}
+
+/* 320px-370px */
+@media (max-width: 370px) {
+    [data-title]::after {
+        transform: translateX(-40%) translateY(-50px) !important;
+    }
+}
+
+
+/*#endregion ::: DARK MODE ::: */
+
+/*#region ::: ERROR HANDLING ::: */
+
+#error {
+    color: red;
+}
+
+/*#endregion ::: ERROR HANDLING ::: */
+
+/*#region ::: FONTS ::: */
+
+/* Roboto Slab  Font */
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: local('Roboto Slab Black'), local('RobotoSlab-Black'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Black.woff2') format('woff2'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: local('Roboto Slab ExtraBold'), local('RobotoSlab-ExtraBold'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-ExtraBold.woff2') format('woff2'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: local('Roboto Slab Bold'), local('RobotoSlab-Bold'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Bold.woff2') format('woff2'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: local('Roboto Slab SemiBold'), local('RobotoSlab-SemiBold'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-SemiBold.woff2') format('woff2'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: local('Roboto Slab Thin'), local('RobotoSlab-Thin'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Thin.woff2') format('woff2'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: local('Roboto Slab ExtraLight'), local('RobotoSlab-ExtraLight'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-ExtraLight.woff2') format('woff2'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Regular.woff2') format('woff2'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: local('Roboto Slab Medium'), local('RobotoSlab-Medium'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Medium.woff2') format('woff2'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Regular.woff2') format('woff2'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: local('Roboto Slab Light'), local('RobotoSlab-Light'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Light.woff2') format('woff2'),
+        url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*#endregion ::: FONTS ::: */
+
+/* :::::::::: */
