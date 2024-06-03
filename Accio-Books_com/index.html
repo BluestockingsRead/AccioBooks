@@ -85,8 +85,6 @@
 <!-- #endregion SEARCH FORM AREA -->
 
 <!-- #region ::: RESULT HEADER +AFFILIATE INFO ::: -->
-<!-- #region ::: RESULT HEADER +AFFILIATE INFO ::: -->
-<!-- ----------NOTE: I'M TESTING A RESULTS HEADER (NEW) -->
 
 <div id="results-container">
 	<div id="results-header" style="display: none;">
@@ -99,12 +97,15 @@
 <!-- #endregion :::  RESULT HEADER +AFFILIATE INFO ::: -->
 
 <!-- #region ::: ERROR HANDLING ::: -->
+
 <div id="error" style="color: red;"></div>
+
 <!-- #endregion ::: ERROR HANDLING ::: -->
-            <!-- #region ::: MAGIC SEARCH LINKS JS SCRIPT ::: -->
+
+<!-- #region ::: MAGIC SEARCH LINKS JS SCRIPT ::: -->
         <script>
 		// #region ::: AMAZON LOCALIZATON AREA :::
-		(function () {
+        (function () {
     // Get the user's language from the browser settings
     var userLang = navigator.language || navigator.userLanguage;
 
@@ -230,8 +231,8 @@
                 },
                 {
                     name: 'Amazon - Kindle *',
-                    url: `https://www.amazon.com/s?k={searchTerm}`,
-                    referralUrl: `https://www.amazon.com/s?k={searchTerm}&tag=${amazonReferralCode}`
+                    url: `${amazonLinkTemplate}`,
+                    referralUrl: `${amazonLinkTemplate}&tag=${amazonReferralCode}`
                 },
                 {
                     name: 'Barnes & Noble ',
