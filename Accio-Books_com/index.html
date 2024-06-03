@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Accio Books! - Your one-stop search tool for all your favorite book sites.">
     <title>Accio Books | One-Stop Search</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
 
 <!-- #region DARK MODE (quick-startup script) -->
     <script>
@@ -34,7 +34,7 @@
 <body>
     <div class="container">
         <header class="accio-header no-invert">
-            <img src="accio-books_487.png" class="no-invert" alt="site Header titled 'Accio Books!' in a cute font">
+            <img src="images/accio-books_blue_nospace_1268.png" class="no-invert" "alt="site Header titled 'Accio Books!' in a cute font">
         </header>  
 <!-- #region ::: LINKED SITES LIST ::: -->
 <div class="sites-list">
@@ -207,7 +207,6 @@
                 // Define referral codes for Amazon and Barnes & Noble
                 const amazonReferralCode = 'acciobooks-20';
                 const barnesReferralCode = '12345-6789';
-                const rakutenReferralCode = 'dm1pwomjswg';
 
                 // List of search URLs for different sites
                 const searches = [{
@@ -235,16 +234,12 @@
                 {
                     name: 'Kobo eBook',
                     url: `https://www.kobo.com/us/en/search?query={searchTerm}&fcmedia=Book`,
-                    referralUrl: `https://www.kobo.com/us/en/search?query={searchTerm}&fcmedia=Book&utm_source=linkshare_us&utm_medium=affiliate&utm_campaign=bluestockingsread&ranmid=37217&raneaid=${rakutenReferralCode}&ransiteid=${rakutenReferralCode}&siteid=${rakutenReferralCode}`
+                    referralUrl: `https://click.linksynergy.com/deeplink?id=Dm1PWoMJswg&mid=37217&murl=https%3a%2f%2fwww.kobo.com%2fus%2fen%2fsearch%3fquery%3d{searchTerm}%26fcmedia%3dBook`
                 },
                 {
                     name: 'Kobo Audiobook',
                     url: `https://www.kobo.com/us/en/search?query={searchTerm}&fcmedia=Audiobook`,
-                    referralUrl: `https://www.kobo.com/us/en/search?query={searchTerm}&fcmedia=Audiobook&utm_source=linkshare_us&utm_medium=affiliate&utm_campaign=bluestockingsread&ranmid=37217&raneaid=${rakutenReferralCode}&ransiteid=${rakutenReferralCode}&siteid=${rakutenReferralCode}`
-                },
-                {
-                    name: 'Audible',
-                    url: 'https://www.audible.com/search?keywords={searchTerm}'
+                    referralUrl: `https://click.linksynergy.com/deeplink?id=Dm1PWoMJswg&mid=37217&murl=https%3a%2f%2fwww.kobo.com%2fus%2fen%2fsearch%3fquery%3d{searchTerm}%26fcmedia%3dAudiobook`
                 },
                 {
                     name: 'Apple',
@@ -310,17 +305,53 @@
         };
     });
 })();
-
+    // #endregion ::: FORM HANDLING SECTION :::
 		</script>
 		
 <!-- #endregion ::: MAGIC SEARCH LINKS JS SCRIPT ::: -->
+
+<!-- #region ::: RAKUTEN AUTOMATE SCRIPT ::: -->
+		<script type="text/javascript">
+            var _rakuten_automate = {
+                u1: "",
+                snippetURL: "js/updated_rakuten_script.js",
+                automateURL: "https://automate.linksynergy.com",
+                widgetKey: "fUtCP86PpnIVe0wJgOLXKnVEvbxSl6Hh",
+                aelJS: null,
+                useDefaultAEL: false,
+                loaded: false,
+                events: []
+            };
+            var ael = window.addEventListener;
+            window.addEventListener = function (a, b, c, d) {
+                "click" !== a && _rakuten_automate.useDefaultAEL ? ael(a, b, c) : _rakuten_automate.events.push({ type: a, handler: b, capture: c, rakuten: d });
+            };
+            _rakuten_automate.links = {};
+            var httpRequest = new XMLHttpRequest;
+            httpRequest.open("GET", _rakuten_automate.snippetURL, !0);
+            httpRequest.timeout = 5E3;
+            httpRequest.ontimeout = function () {
+                if (!_rakuten_automate.loaded) {
+                    for (i = 0; i < _rakuten_automate.events.length; i++) {
+                        var a = _rakuten_automate.events[i];
+                        ael(a.type, a.handler, a.capture);
+                    }
+                    _rakuten_automate.useDefaultAEL = !0;
+                }
+            };
+            httpRequest.onreadystatechange = function () {
+                httpRequest.readyState === XMLHttpRequest.DONE && 200 === httpRequest.status && (eval(httpRequest.responseText), _rakuten_automate.run(ael));
+            };
+            httpRequest.send(null);
+        </script>
+<!-- #endregion ::: RAKUTEN AUTOMATE SCRIPT ::: -->
 
 		<footer>
 <!-- #region ::: DARK MODE AREA ::: -->
 			<div style="margin-top: 10px;"></div>
 			<div class="dark-toggle" data-title="Toggle light and dark mode">
 				<button id="dark-mode-toggle" aria-label="Toggle light and dark mode">
-					<img src="darkmode_sun_moon.png" alt="Toggle between light and dark mode" width="42" height="21">
+					<img src="images/darkmode_sun_moon.png" alt="Toggle between light and dark mode" width="42" height="21">
 				</button>
 			</div>
 			<hr>
@@ -340,7 +371,7 @@
             <!-- #endregion ::: FOOTER TEXT AREA ::: -->
         </footer>
 <!-- #region ::: DARK MODE DOT JS LINK ::: -->
-	<script src="darkmode.js" defer></script>
+	<script src="js/darkmode.js" defer></script>
 <!-- #endregion ::: DARK MODE DOT JS LINK ::: -->
 	</div>
 </body>
