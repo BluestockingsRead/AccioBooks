@@ -533,29 +533,43 @@ ul li.checkmark::before {
     /* Adds space between the bullet and the text */
 }
 
+.faq-answerlists {
+    list-style-type: circle;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
 /*#region H1 FANCY FLEXIBLE - also see HTML */
+
 h1 {
     text-align: center;
     font-size: 1.8em;
     max-width: 100%;
-    margin: 0.5em;
+    margin: 0;
     padding: 0;
+    width: 100%;
 }
 
 /* 0px-470px */
-@media (max-width:470px) {
+@media (max-width: 470px) {
     h1 {
-        font-size: initial;
+        font-size: inherit;
+        width: 98% !important; /* Make the header nearly full width */
+
+        margin: 0 auto; /* Center the header */
     }
 
     .svg-text {
         display: inline-block;
+        vertical-align: middle;
+        width: 98%; 
     }
 
     .plain-text {
         display: none !important;
     }
 }
+
 /* 471px - Desktop */
 @media (min-width: 471px) {
     .svg-text {
@@ -571,6 +585,21 @@ h2 {
 
 h3 {
     font-size: 1em;
+}
+
+.faq-content {
+    width: 85%;
+    padding: 1em 0;
+    text-align: justify;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 1em; 
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #4b4e6c;
+    background-color: inherit;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .question {
@@ -608,10 +637,37 @@ h3 {
     margin-right: 9px;
 }
 
+.back2-top {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
+    font-size: 0.80em;
+    font-style: italic;
+    color: #1856f9;
+}
+
   /* Smooth scrolling for anchor links */
 html {
     scroll-behavior: smooth;
 }
+
+/* amazon disclosure */
+.info-box {
+	outline:0;
+	color: #4b4e6c;
+	font-size: 16px;
+    margin: 100px 10px;
+	padding: 10px 10px;
+    border: 3px double #9797BE;
+	background-color: #FCFCFD;
+	border-radius: 5px;
+    width: 85%;
+    text-align: justify;
+    font-weight: 500;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
 
 /*#endregion ::: PAGE 2 - FAQ.HTML ::: */
 

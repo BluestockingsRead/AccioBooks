@@ -34,66 +34,70 @@
 <body>
     <div class="container">
         <header class="accio-header no-invert">
-            <img src="images/accio-books_blue_nospace_1268.png" class="no-invert" "alt="site Header titled 'Accio Books!' in a cute font">
+            <img src="images/accio-books_blue_nospace_1268.png" class="no-invert" alt="Site header titled 'Accio Books!' in a cute font">
         </header>  
 <!-- #region ::: LINKED SITES LIST ::: -->
-<div class="sites-list">
-    <span>Goodreads</span><!--
-    --><span>Storygraph</span><!--
-    --><span>Romance.io</span><!--
-    --><span>Amazon Kindle</span><!--
-    --><span>Barnes & Noble</span><!--
-    --><span>Audible</span><!--
-    --><span>Kobo</span><!--
-    --><span>Apple</span><!--
-    --><span>Google Play</span><!--
-    --><span>BookBub</span><!--
-    --><span>more coming soon!</span>
-</div>
+<nav aria-label="Linked Sites">
+    <div class="sites-list">
+        <span>Goodreads</span><!--
+        --><span>Storygraph</span><!--
+        --><span>Romance.io</span><!--
+        --><span>Amazon Kindle</span><!--
+        --><span>Barnes & Noble</span><!--
+        --><span>Audible</span><!--
+        --><span>Kobo</span><!--
+        --><span>Apple</span><!--
+        --><span>Google Play</span><!--
+        --><span>BookBub</span><!--
+        --><span>more coming soon!</span>
+    </div>
+</nav
 <!-- #endregion LINKED SITES LIST -->
-        
-<!-- #region ::: INTRO TEXT ::: -->
-		<p>Looking for your next great read? Assemble all your favorite book sites with just one tap, and save more time for reading!</p>
+         
+        <main>
+            <section aria-labelledby="intro-text">
+                <p id="intro-text">Stop searching, start reading! Accio Books pulls results from all your go-to book sites, so you can find the stories you love quicker.</p>
+            </section>
 <!-- #endregion INTRO TEXT -->
         
 <!-- #region ::: SEARCH FORM AREA ::: -->
-<form id="searchForm">
-    <label for="bookTitle">
-        <div class="searchInputWrapper">
-            <input type="text" class="searchInput" id="bookTitle" name="bookTitle" placeholder="Enter Title (author optional) or ISBN">
-        </div>
-    </label>
-    <div class="search-flexbox">
-        <div class="check-tab">    
-            <input type="checkbox" id="newTabCheckbox" class="check-tab">
-            <label for="newTabCheckbox">Open link in new tab</label>
-        </div>
-        <div class="searchButton">
-            <input type="submit" value="Accio Books!">
-        </div>
-    </div>
-</form>
 
+            <section aria-labelledby="search-form">
+                                <form id="searchForm" aria-labelledby="search-form">
+                    <label for="bookTitle">
+                        <div class="searchInputWrapper">
+                            <input type="text" class="searchInput" id="bookTitle" name="bookTitle" placeholder="Enter Title (author optional) or ISBN" aria-label="Book Title">
+                        </div>
+                    </label>
+                    <div class="search-flexbox">
+                        <div class="check-tab">    
+                            <input type="checkbox" id="newTabCheckbox" class="check-tab">
+                            <label for="newTabCheckbox">Open link in new tab</label>
+                        </div>
+                        <div class="searchButton">
+                            <input type="submit" value="Accio Books!">
+                        </div>
+                    </div>
+                </form>
+            </section>
 <!-- #endregion SEARCH FORM AREA -->
 
 <!-- #region ::: RESULT HEADER +AFFILIATE INFO ::: -->
-<!-- ----------NOTE: I'M TESTING A RESULTS HEADER (NEW) -->
 
-<div id="results-container">
-	<div id="results-header" style="display: none;">
-		<h2>Search Results:</h2>
-		<h6>Amazon links automatically adopt to your location!  Results with "*" are affiliate links.Please <a href="https:/accio-books.com/affiliate-policy.html">click here</a> to read affiliate policy.</h6>
-	</div>
-	<div id="results"></div> <!-- This div will contain the search results -->
-</div>
+<section id="results-container" aria-labelledby="results-header" hidden>
+                <h2 id="results-header">Search Results:</h2>
+                <p id="results-notes">
+                    Amazon links will automatically adapt to your location! <br>
+                    Results with "*" are affiliate links. Read more about affiliate links <a href="https:/accio-books.com/faq.html#affiliate-info">here</a>. <br>
+                    For Amazon affiliate disclosure, <a href="https:/accio-books.com/faq.html#amazon-disclosure">click here</a>.
+                </p>
+                <div id="results"></div>
+            </section>
 
-<!-- #endregion :::  RESULT HEADER +AFFILIATE INFO ::: -->
+            <div id="error" role="alert" style="color: red;"></div>
+        </main>
 
-<!-- #region ::: ERROR HANDLING ::: -->
-<div id="error" style="color: red;"></div>
-<!-- #endregion ::: ERROR HANDLING ::: -->
-
-<!-- #region ::: MAGIC SEARCH LINKS JS SCRIPT ::: -->
+            <!-- #region ::: MAGIC SEARCH LINKS JS SCRIPT ::: -->
         <script>
 		// #region ::: AMAZON LOCALIZATON AREA :::
 		(function () {
@@ -230,6 +234,10 @@
                     url: `https://www.barnesandnoble.com/s/{searchTerm}/_/N-8qa`,
                 },
                 {
+                    name: 'Audible',
+                    url: 'https://www.audible.com/search?keywords={searchTerm}'
+                },
+                {
                     name: 'Kobo eBook *',
                     url: `https://www.kobo.com/us/en/search?query={searchTerm}&fcmedia=Book`,
                     referralUrl: `https://click.linksynergy.com/deeplink?id=Dm1PWoMJswg&mid=37217&murl=https%3a%2f%2fwww.kobo.com%2fus%2fen%2fsearch%3fquery%3d{searchTerm}%26fcmedia%3dBook`
@@ -269,7 +277,7 @@
                             <span class="result-details--duo">
                                 <span class="result-separator--duo">&ensp;◦&ensp;</span>
                                 <span class="result-sitename--duo">${search.name}</span>
-                                <a href="${fullUrl}" target="${target}" class="result-url--non-referral">&emsp;non-referral link</a>
+                                <a href="${fullUrl}" target="${target}" class="result-url--non-referral">&emsp;non-affiliate link</a>
                             </span>
                         </div>`;
                 } else {
@@ -357,7 +365,7 @@
 <!-- #region ::: FOOTER TEXT AREA ::: -->
             <p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
                 <span>Hey there! This search tool is a labor of love—I hope you find it helpful! Please <a href="https:/accio-books.com/FAQ.html">click here</a> to
-                    learn more about Accio-Books.com's features, including FAQs, fun facts, tips and trick, affiliate
+                    learn more about Accio-Books.com's features, including FAQs, fun facts, tips and tricks, affiliate
                     details, and contact info. Thanks and happy reading 📚!
                 </span>
             </p>
