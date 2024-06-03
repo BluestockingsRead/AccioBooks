@@ -489,6 +489,21 @@ input[type="submit" i]:active {
 
 /*#region ::: PAGE 2 - FAQ.HTML ::: */
 
+/* ALL LISTS */
+
+/* Desktop  */
+ul {
+    margin: 1.5em;
+  }
+  
+  /* Mobile ul */
+  @media screen and (max-width: 600px) {
+    ul {
+      margin: 0;
+    }
+  }
+  
+
 /* FAQ list */
 
 ul.faq {
@@ -513,11 +528,14 @@ ul.checkmark {
     list-style-type: none;
 }
 
+li.checkmark {
+    list-style: inside;
+}
+
 li.checkmark::before {
     content: "\2713";
     /* Adds a check mark before each list item */
     color: green;
-    padding-right: 8px;
     /* Adds space between the bullet and the text */
 }
 
@@ -535,8 +553,6 @@ ul li.checkmark::before {
 
 .faq-answerlists {
     list-style-type: circle;
-    margin-left: 1.5em;
-    margin-right: 1.5em;
 }
 
 /*#region H1 FANCY FLEXIBLE - also see HTML */
@@ -808,16 +824,23 @@ html {
     }
 }
 
-
 /*#endregion ::: DARK MODE ::: */
 
 /*#region ::: ERROR HANDLING ::: */
-
 #error {
     color: red;
 }
-
 /*#endregion ::: ERROR HANDLING ::: */
+
+.footer-text {
+    line-height: 1.2; 
+    font-size: 0.85em; 
+    color: #36395A;
+}
+.footer-text a {
+    font-weight: 700;
+    color:#343daf
+}
 
 /*#region ::: FONTS ::: */
 
