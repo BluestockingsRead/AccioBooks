@@ -76,7 +76,7 @@ p {
     font-size: 1em; 
     letter-spacing: -0.02em;
     line-height: 1.4;
-    font-weight: 500;
+    font-weight: 400;
     color: #4b4e6c;
     background-color: inherit;
     margin-left: auto;
@@ -99,13 +99,13 @@ a {
     text-decoration: none;
     transition: all 0.3s ease;
     font-family: 'Roboto Slab', sans-serif;
+    font-weight: bolder;
 }
 
 /* embiggens on hover */
 a:hover {
     color: #1856f9;
     text-decoration: underline;
-    font-weight: bolder;
     transform: translateY(-1px) scale(1.03); 
     font-family: 'Roboto Slab', sans-serif;
 }
@@ -125,7 +125,7 @@ body, div, p {
 /* keeps full names together, prevents line breaks */
 .sites-list {
     margin-top: 1em;
-    margin-left: 0.7em;
+    margin-left: 0.5em;
     margin-right: 0.7em;
     margin-bottom: 1em;
     line-height: 1.35;
@@ -139,7 +139,7 @@ body, div, p {
     .sites-list {
     margin-top: 0.4em;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 1em;
     margin-bottom: 1em;
     line-height: 1.05;
     max-width: 100%;
@@ -611,7 +611,7 @@ h3 {
     font-size: 1em; 
     letter-spacing: -0.02em;
     line-height: 1.4;
-    font-weight: 5400;
+    font-weight: 400;
     color: #4b4e6c;
     background-color: inherit;
     margin-left: auto;
@@ -836,10 +836,6 @@ html {
     line-height: 1.2; 
     font-size: 0.85em; 
     color: #36395A;
-}
-.footer-text a {
-    font-weight: 700;
-    color:#343daf
 }
 
 /*#region ::: FONTS ::: */
