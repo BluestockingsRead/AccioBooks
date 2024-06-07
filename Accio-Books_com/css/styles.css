@@ -99,7 +99,7 @@ a {
     text-decoration: none;
     transition: all 0.3s ease;
     font-family: 'Roboto Slab', sans-serif;
-    font-weight: bolder;
+    font-weight: bolder !important;
 }
 
 /* embiggens on hover */
@@ -451,7 +451,7 @@ input[type="submit" i]:active {
     font-size: 1.25em;
     color: #343daf;
     flex-grow: 1;
-    font-weight: 600;
+    font-weight: 500 !important;
     transition: color .15s, transform .15s;
 }
 
@@ -473,7 +473,7 @@ input[type="submit" i]:active {
 /* Styling Site Name (after ◦) */
 .result-sitename--mono,
 .result-sitename--duo {
-    font-weight: 500;
+    font-weight: 400;
     color: #555555; /* Slightly darker color for the site name */
 }
 
@@ -481,7 +481,7 @@ input[type="submit" i]:active {
     /* Styles for non-referral URL */
     letter-spacing: -0.04em;
     font-size: .9em;
-    font-weight: 400;
+    font-weight: 500 !important;
     color: #888888; /* Subtle gray for non-referral URL */
 }
 
@@ -601,6 +601,10 @@ h2 {
 
 h3 {
     font-size: 1em;
+}
+
+h6 {
+    font-weight: 500;
 }
 
 .faq-content {
@@ -832,11 +836,29 @@ html {
 }
 /*#endregion ::: ERROR HANDLING ::: */
 
+/*#region ::: FOOTER ::: */
+
 .footer-text {
     line-height: 1.2; 
     font-size: 0.85em; 
     color: #36395A;
 }
+
+.copyNote {
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 1px;
+    border-top: 1px solid #eeeeee;
+}
+
+.copyNote p {
+    padding: 1px;
+    text-align: right;
+    width: 98%;
+    font-size: .75em;
+}
+
+/*#endregion ::: FOOTER ::: */
 
 /*#region ::: FONTS ::: */
 
