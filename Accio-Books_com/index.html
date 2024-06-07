@@ -195,6 +195,16 @@
             resultsHeader.style.display = 'block';
         }
 
+    // Function to update link targets
+    function updateLinks() {
+        const links = resultsDiv.getElementsByTagName("a");
+        const target = newTabCheckbox.checked ? "_blank" : "_self";
+        
+        for (let link of links) {
+            link.target = target;
+        }
+    }
+
         searchForm.onsubmit = function(event) {
             event.preventDefault();
 
@@ -217,7 +227,8 @@
                 const amazonReferralCode = 'acciobooks-20';
 
                 // List of search URLs for different sites
-                const searches = [{
+            const searches = [
+                {
                     name: 'Goodreads',
                     url: 'https://www.goodreads.com/search?q={searchTerm}'
                 },
@@ -301,6 +312,9 @@
             resultsDiv.innerHTML = searchLinks;
             resultsHeader.style.display = 'block';
 
+            // Update links targets based on checkbox state
+            updateLinks();
+
             // Save search results and input value to localStorage
             localStorage.setItem("previousSearch", title);
             localStorage.setItem("previousResults", searchLinks);
@@ -314,9 +328,16 @@
                 console.error("Error generating search links:", error);
             }
         };
-    });
-})();
-    // #endregion ::: FORM HANDLING SECTION :::
+
+// Event listener for checkbox change
+newTabCheckbox.addEventListener("change", updateLinks);
+
+// Initial update on page load
+updateLinks();
+});
+
+// #endregion ::: FORM HANDLING SECTION :::
+})();    // #endregion ::: FORM HANDLING SECTION :::
 		</script>
 		
 <!-- #endregion ::: MAGIC SEARCH LINKS JS SCRIPT ::: -->
@@ -368,17 +389,22 @@
 			<hr>
 <!-- #endregion ::: DARK MODE ::: -->
 <!-- #region ::: FOOTER TEXT AREA ::: -->
-            <p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
-                <span>Hey there! This search tool is a labor of love—I hope you find it helpful! Please <a href="https://accio-books.com/FAQ"style="font-weight: 500;">click here</a> to
+        <div class="footer-text">
+            <p>
+                <span>Hey there! This search tool is a labor of love—I hope you find it helpful! Please <a href="https://accio-books.com/FAQ">click here</a> to
                     learn more about Accio-Books.com's features, including FAQs, fun facts, tips and tricks, affiliate
                     details, and contact info. Thanks and happy reading 📚!
                 </span>
-            </p>
-            <p style="line-height: 1.2; font-size: 0.75em; color: #36395A;">
+                <br><br>
                 <span>- Kacie <a href="mailto:acciobooks.com@gmail.com">(email)</a>&nbsp;
-                    Also check out my bookish blog at <a href="https://bluestockingsread.com/" style="font-weight: 500;" rel="noopener">BluestockingsRead.com</a>!
+                    Also check out my bookish blog at <a href="https://bluestockingsread.com/" rel="noopener">BluestockingsRead.com</a>!
                 </span>
             </p>
+        </div>
+            <div class="copyNote">
+                <p>&copy; 2024 Accio-Books.com. All rights reserved.</p>
+            </div>
+            
             <!-- #endregion ::: FOOTER TEXT AREA ::: -->
         </footer>
 <!-- #region ::: DARK MODE DOT JS LINK ::: -->
