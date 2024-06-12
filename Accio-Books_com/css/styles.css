@@ -595,6 +595,10 @@ h1 {
 
 /*#endregion H1 FANCY FLEXIBLE - also see HTML */
 
+h1, h2, h3,h4, h5, h6 {
+    color: #4b4e6c;
+}
+
 h2 {
     font-size: 1.3em;
 }
@@ -848,7 +852,7 @@ html {
     width: 100%;
     background-color: #f8f8f8;
     padding: 1px;
-    border-top: 1px solid #eeeeee;
+    border-top: 1px dotted #eeeeee;
 }
 
 .copyNote p {

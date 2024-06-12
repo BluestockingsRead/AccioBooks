@@ -98,7 +98,7 @@
 
 <!-- #region ::: ERROR HANDLING ::: -->
 
-<div id="error" style="color: red;"></div>
+<div id="error" style="color: rgb(255, 0, 0);"></div>
 
 <!-- #endregion ::: ERROR HANDLING ::: -->
 
@@ -205,25 +205,7 @@
         }
     }
 
-        searchForm.onsubmit = function(event) {
-            event.preventDefault();
-
-            const title = bookTitleInput.value.trim();
-            const openInNewTab = newTabCheckbox.checked;
-
-            // Check if the title is empty and show an error message if it is
-            if (!title) {
-                errorDiv.textContent = "Please enter a book title.";
-                resultsDiv.innerHTML = "";
-                resultsHeader.style.display = 'none'; // Hide the header note if no title is provided
-                return;
-            }
-
-            try {
-                // Clear any previous error messages
-                errorDiv.textContent = "";
-
-                // Define referral codes for Amazon and Barnes & Noble
+        function generateSearchLinks(title, openInNewTab) {
                 const amazonReferralCode = 'acciobooks-20';
 
                 // List of search URLs for different sites
@@ -314,10 +296,27 @@
 
             // Update links targets based on checkbox state
             updateLinks();
+}
+            // Save search results and update url
 
-            // Save search results and input value to localStorage
+                        searchForm.onsubmit = function(event) {
+                            event.preventDefault();
+                            const title = bookTitleInput.value.trim();
+                            const openInNewTab = newTabCheckbox.checked;
+
+                            if (!title) {
+                                errorDiv.textContent = "Please enter a book title.";
+                                resultsDiv.innerHTML = "";
+                                resultsHeader.style.display = 'none';
+                                return;
+                            }
+
+                            try {
+                                errorDiv.textContent = "";
+                                generateSearchLinks(title, openInNewTab);
+                                history.pushState({}, '', `?q=${encodeURIComponent(title)}`);
             localStorage.setItem("previousSearch", title);
-            localStorage.setItem("previousResults", searchLinks);
+                                localStorage.setItem("previousResults", resultsDiv.innerHTML);
             localStorage.setItem("newTabState", openInNewTab);
 
             } catch (error) {
@@ -334,14 +333,19 @@ newTabCheckbox.addEventListener("change", updateLinks);
 
 // Initial update on page load
 updateLinks();
-});
 
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const searchQuery = urlParams.get('q');
+                        if (searchQuery) {
+                            bookTitleInput.value = searchQuery;
+                            generateSearchLinks(searchQuery, newTabCheckbox.checked);
+                        }
+                    });
+                })();
 // #endregion ::: FORM HANDLING SECTION :::
-})();    // #endregion ::: FORM HANDLING SECTION :::
 		</script>
-		
 <!-- #endregion ::: MAGIC SEARCH LINKS JS SCRIPT ::: -->
-
+        </main>
 <!-- #region ::: RAKUTEN AUTOMATE SCRIPT ::: -->
 		<script type="text/javascript">
             var _rakuten_automate = {
