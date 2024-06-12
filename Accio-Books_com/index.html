@@ -314,7 +314,7 @@
                             try {
                                 errorDiv.textContent = "";
                                 generateSearchLinks(title, openInNewTab);
-                                history.pushState({}, '', `?q=${encodeURIComponent(title)}`);
+                                history.pushState({}, '', `search?q=${encodeURIComponent(title)}`);
             localStorage.setItem("previousSearch", title);
                                 localStorage.setItem("previousResults", resultsDiv.innerHTML);
             localStorage.setItem("newTabState", openInNewTab);
