@@ -37,7 +37,8 @@
             <a href="https://accio-books.com">
                 <img src="images/accio-books_blue_nospace_1268.png" class="no-invert" alt="Site header titled 'Accio Books!' in a cute font">
             </a>
-        </header>  
+        </header>
+
 <!-- #region ::: LINKED SITES LIST ::: -->
 <nav aria-label="Linked Sites">
     <div class="sites-list">
@@ -53,15 +54,16 @@
         --><span>BookBub</span><!--
         --><span>more coming soon!</span>
     </div>
-</nav
-<!-- #endregion LINKED SITES LIST -->
-         
-        <main>
-            <section aria-labelledby="intro-text">
-                <p id="intro-text">Stop searching, start reading! Accio Books pulls results from all your go-to book sites, so you can find the stories you love quicker.</p>
-            </section>
+</nav>
+<!-- #endregion ::: LINKED SITES LIST ::: -->
+
+<!-- #region INTRO TEXT -->
+<main>
+    <section aria-labelledby="intro-text">
+        <h5 id="intro-text">Search less, read more! Accio Books pulls results from all your go-to book sites, so you can find the stories you love quicker.</h5>
+    </section>
 <!-- #endregion INTRO TEXT -->
-        
+
 <!-- #region ::: SEARCH FORM AREA ::: -->
 
             <section aria-labelledby="search-form">
@@ -88,8 +90,8 @@
 
 <div id="results-container">
 	<div id="results-header" style="display: none;">
-		<h2>Search Results:</h2>
-		<h6 id="results-notes">Amazon links adapt to your location!  <br> Results with "*" are affiliate links. Read more about affiliate links <a href="https://accio-books.com/faq#affiliate-info">here</a>. For Amazon affiliate disclosure, <a href="https://accio-books.com/faq#amazon-disclosure">click here</a>.</h6>
+		<h1>Search Results:</h1>
+		<h5 id="results-notes">Amazon links adapt to your location! Results with '&thinsp;<strong>*</strong>&thinsp;' are affiliate links. Read more about affiliate links <a href="https://accio-books.com/faq#affiliate-info">here</a>. For Amazon affiliate disclosure, <a href="https://accio-books.com/faq#amazon-disclosure">click here</a>.</h5>
 	</div>
 	<div id="results"></div> <!-- This div will contain the search results -->
 </div>
@@ -271,21 +273,30 @@
                 if (referralLink) {
                     return `
                         <div class="result-container--duo">
-                            <a href="${referralLink}" target="${target}" class="result-url--referral">${title}</a>
-                            <span class="result-details--duo">
-                                <span class="result-separator--duo">&ensp;◦&ensp;</span>
+                            <div class="cube result-sep-site--duo">
+                                <span class="result-separator--duo">◦&nbsp;</span>
                                 <span class="result-sitename--duo">${search.name}</span>
-                                <a href="${fullUrl}" target="${target}" class="result-url--non-referral">&emsp;non-affiliate link</a>
-                            </span>
+                            </div>
+                            <div class="cube result-url--referral">
+                                <a href="${referralLink}" target="${target}">${title}</a>
+                            </div>
+                            <div class="cube result-url--non-referral">
+                                <a href="${fullUrl}" target="${target}">[non-affiliate link]</a>
+                            </div>
                         </div>`;
                 } else {
                     return `
                         <div class="result-container--mono">
-                            <a href="${fullUrl}" target="${target}" class="result-url--mono">${title}</a>
-                            <span class="result-details--mono">
-                                <span class="result-separator--mono">&ensp;◦&ensp;</span>
+                            <div class="cube result-sep-site--mono">
+                                <span class="result-separator--mono">◦&nbsp;</span>
                                 <span class="result-sitename--mono">${search.name}</span>
-                            </span>
+                            </div>
+                            <div class="cube result-url--mono"">
+                                <a href="${fullUrl}" target="${target}">${title}</a>
+                            </div>
+                            <div class="cube result-empty--mono">
+                                &nbsp;
+                            </div>
                         </div>`;
                 }
             }).join('');
@@ -346,42 +357,55 @@ updateLinks();
 		</script>
 <!-- #endregion ::: MAGIC SEARCH LINKS JS SCRIPT ::: -->
         </main>
-<!-- #region ::: RAKUTEN AUTOMATE SCRIPT ::: -->
-		<script type="text/javascript">
-            var _rakuten_automate = {
-                u1: "",
-                snippetURL: "js/updated_rakuten_script.js",
-                automateURL: "https://automate.linksynergy.com",
-                widgetKey: "fUtCP86PpnIVe0wJgOLXKnVEvbxSl6Hh",
-                aelJS: null,
-                useDefaultAEL: false,
-                loaded: false,
-                events: []
-            };
-            var ael = window.addEventListener;
-            window.addEventListener = function (a, b, c, d) {
-                "click" !== a && _rakuten_automate.useDefaultAEL ? ael(a, b, c) : _rakuten_automate.events.push({ type: a, handler: b, capture: c, rakuten: d });
-            };
-            _rakuten_automate.links = {};
-            var httpRequest = new XMLHttpRequest;
-            httpRequest.open("GET", _rakuten_automate.snippetURL, !0);
-            httpRequest.timeout = 5E3;
-            httpRequest.ontimeout = function () {
-                if (!_rakuten_automate.loaded) {
-                    for (i = 0; i < _rakuten_automate.events.length; i++) {
-                        var a = _rakuten_automate.events[i];
-                        ael(a.type, a.handler, a.capture);
-                    }
-                    _rakuten_automate.useDefaultAEL = !0;
-                }
-            };
-            httpRequest.onreadystatechange = function () {
-                httpRequest.readyState === XMLHttpRequest.DONE && 200 === httpRequest.status && (eval(httpRequest.responseText), _rakuten_automate.run(ael));
-            };
-            httpRequest.send(null);
-        </script>
-<!-- #endregion ::: RAKUTEN AUTOMATE SCRIPT ::: -->
 
+<!-- #region ::: RAKUTEN AUTOMATE SCRIPT ::: -->
+<script type="text/javascript">
+    var _rakuten_automate = {
+        u1: "",
+        snippetURL: "js/updated_rakuten_script.js",
+        automateURL: "https://automate.linksynergy.com",
+        widgetKey: "fUtCP86PpnIVe0wJgOLXKnVEvbxSl6Hh",
+        aelJS: null,
+        useDefaultAEL: false,
+        loaded: false,
+        events: []
+    };
+    var ael = window.addEventListener;
+    window.addEventListener = function (a, b, c, d) {
+        "click" !== a && _rakuten_automate.useDefaultAEL ? ael(a, b, c) : _rakuten_automate.events.push({ type: a, handler: b, capture: c, rakuten: d });
+    };
+    _rakuten_automate.links = {};
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open("GET", _rakuten_automate.snippetURL, true);
+    httpRequest.timeout = 5000;
+    httpRequest.ontimeout = function () {
+        if (!_rakuten_automate.loaded) {
+            for (var i = 0; i < _rakuten_automate.events.length; i++) {
+                var event = _rakuten_automate.events[i];
+                ael(event.type, event.handler, event.capture);
+            }
+            _rakuten_automate.useDefaultAEL = true;
+        }
+    };
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+                console.log("httpRequest.responseText:", httpRequest.responseText);
+                eval(httpRequest.responseText);
+                if (typeof window.rakutenAutomate.run === "function") {
+                    window.rakutenAutomate.run(ael);
+                } else {
+                    console.error("Error: window.rakutenAutomate.run is not a function");
+                }
+            } else {
+                console.error("Error: Failed to load the script from snippetURL.");
+            }
+        }
+    };
+    httpRequest.send(null);
+</script>
+<!-- #endregion ::: RAKUTEN AUTOMATE SCRIPT ::: -->
+</section>
 		<footer>
 <!-- #region ::: DARK MODE AREA ::: -->
 			<div style="margin-top: 10px;"></div>
@@ -392,25 +416,21 @@ updateLinks();
 			</div>
 			<hr>
 <!-- #endregion ::: DARK MODE ::: -->
+
 <!-- #region ::: FOOTER TEXT AREA ::: -->
         <div class="footer-text">
-            <p>
-                <span>Hey there! This search tool is a labor of love—I hope you find it helpful! Please <a href="https://accio-books.com/FAQ">click here</a> to
-                    learn more about Accio-Books.com's features, including FAQs, fun facts, tips and tricks, affiliate
-                    details, and contact info. Thanks and happy reading 📚!
-                </span>
-                <br><br>
-                <span>- Kacie <a href="mailto:acciobooks.com@gmail.com">(email)</a>&nbsp;
-                    Also check out my bookish blog at <a href="https://bluestockingsread.com/" rel="noopener">BluestockingsRead.com</a>!
-                </span>
-            </p>
+            <p>Hey there! This search tool is a labor of love—I hope you find it helpful! Please <a href="https://accio-books.com/FAQ">click here</a> to learn more about Accio-Books.com's features, including FAQs, fun facts, tips and tricks, affiliate details, and more.</p>
+            <p>Find Accio-Books.com on all your <a href="https://beacons.ai/accio_books" rel="noopener">favorite socials</a>, or send an <a href="mailto:acciobooks.com@gmail.com">email</a>. You can also find me on <a href="https://beacons.ai/bluestocking" rel="noopener">my personal bookish socials</a>, and my book blog <a href="https://bluestockingsread.com/" rel="noopener">BluestockingsRead.com</a>. Happy reading 📚!</p>
+            <div style="height: 0.31em;"></div>
+            <p><span style="font-family: 'Before the Rain'; font-weight: 700;"><sup>-</sup>Kacie</span></p>
+            <div style="height: 0.63em;"></div>
         </div>
-            <div class="copyNote">
-                <p>&copy; 2024 Accio-Books.com. All rights reserved.</p>
-            </div>
-            
-            <!-- #endregion ::: FOOTER TEXT AREA ::: -->
-        </footer>
+        <div class="copyNote">
+            <p>&copy; 2024 Accio-Books.com. All rights reserved.</p>
+        </div>
+</footer>
+<!-- #endregion ::: FOOTER TEXT AREA ::: -->
+
 <!-- #region ::: DARK MODE DOT JS LINK ::: -->
 	<script src="js/darkmode.js" defer></script>
 <!-- #endregion ::: DARK MODE DOT JS LINK ::: -->

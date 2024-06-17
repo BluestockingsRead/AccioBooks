@@ -1,5 +1,5 @@
 /* ::: ACCIO-BOOKS.COM CSS ::: */
-/* :::::::::::::::::::: */
+/* ::::::::::6.17.24:::::::::: */
 
 /*#region ::: BASICS ::: */
 
@@ -52,8 +52,9 @@ body::before {
     box-shadow: #000000b8 0 0.2em 1em;
 }
 
-/* Accio Books! header in Symphony font */
-.accio-header img {
+/* Image Headers */
+.accio-header img,
+.faq-header img {
     display: inline-block;
     position: relative;
     width: 65%; 
@@ -62,7 +63,8 @@ body::before {
 
 /* 0px-470px */
 @media (max-width:470px) {
-    .accio-header img {
+    .accio-header img,
+    .faq-header img {
         width: 99%;
         max-width: 99%;
     }
@@ -70,7 +72,7 @@ body::before {
 
 p {
     width: 85%;
-    padding: 1em 0;
+    padding: 0.5em 0;
     text-align: justify;
     font-family: 'Roboto Slab', sans-serif;
     font-size: 1em; 
@@ -87,28 +89,28 @@ p {
 @media (max-width:470px) {
     p {
         width: 90%;
-        padding: .5em 0 1.5em 0;
+        padding: 0.5em 0;
         font-size: 1em; 
     }
 }
 
-/* LINK OVERRIDES */
-/* removes underline by default */
-/* Anchor Tag CSS */
+/* LINK STYLING */
 a {
     text-decoration: none;
-    transition: all 0.3s ease;
-    font-family: 'Roboto Slab', sans-serif;
-    font-weight: bolder !important;
+    transition: all 0.3s ease !important;
+    font-weight: bolder;
+    display: inline-block;
 }
 
-/* embiggens on hover */
-a:hover {
-    color: #1856f9;
-    text-decoration: underline;
-    transform: translateY(-1px) scale(1.03); 
-    font-family: 'Roboto Slab', sans-serif;
+/* Ensure hover state is applied correctly */
+a:hover, 
+a:focus, 
+a:active {
+    color: #1856f9 !important;
+    text-decoration: underline !important;
+    transform: translateY(-1px) scale(1.03) !important;
 }
+
 
 /* CURSOR OVERRIDES */
 body, div, p {
@@ -118,7 +120,41 @@ body, div, p {
     cursor: pointer;
 }
 
+/* HEADER OVERRIDES */
+h1, h2, h3,h4, h5, h6 {
+    color: #4b4e6c;
+}
+
+h1 {
+    font-size: 1.7em;
+}
+h2 {
+    font-size: 1.6em;
+}
+h3 {
+    font-size: 1.2em;
+}
+h4 {
+    font-size: 1em; /* same as regular h4 */
+}
+/* make h5 similar to paragraph style */
+h5 {
+    font-size: 1em; /* same as h4 */
+    font-weight: normal !important;
+    margin: 1em 0;
+}
+h6 {
+    font-size: 0.83em;
+    font-weight: 500;
+}
+
 /*#endregion ::: BASICS ::: */
+
+/*#region ::: NEW TABS LAYOUT TEST ::: */
+
+
+
+/*#endregion ::: NEW TABS LAYOUT TEST ::: */
 
 /*#region ::: LINKED SITES LIST ::: */
 
@@ -405,113 +441,177 @@ input[type="submit" i]:active {
 
 #results-header {
     display: none;
-    font-size: 1.5em;
     margin-bottom: 10px;
 }
 
+/* Headers as pseudo-paragraphs */
+#intro-text,
+#results-notes {
+    width: 85%;
+    padding: 0.3em 0;
+    text-align: justify;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    background-color: inherit;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#results-notes {
+    font-size: 0.95em;
+}
+
+/*  Headers as pseudo-paragraphs - mobile view - 0px-470px */
+@media (max-width:470px) {
+    #intro-text,
+    #results-notes {
+        width: 90%;
+        padding: .5em 0 1em 0;
+    }
+}
+
+/* ----ALL THE RESULTS---- */
 /* Results Styling */
 #results {
-    margin: 50px 3vw;
-    text-align: left;
+    margin: 30px 3vw;
     font-family: 'Roboto Slab', sans-serif;
 }
 
-/* Overall styling for both result types */
+/* ----FLEX CONTAINER: "◦ Amazon - Kindle *  Book Title by Ann Author [non-affiliate link]" ---- */
 .result-container--mono,
 .result-container--duo {
-    display: flex; /* Ensure flexbox is used */
-    flex-direction: row;
+    display: flex;
     flex-wrap: wrap;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-    align-items: baseline;
-    appearance: none;
+    margin: 5px 0;
     background-color: #FCFCFD;
     border-bottom: 1px solid #d6d6e7a8;
-    padding: 15px 5px;
+    padding: 10px 5px 15px;
     border-radius: 2px;
     box-sizing: border-box;
     color: #36395A;
     cursor: default;
-    transition: all 0.3s ease;
 }
 
-/* GROUP: dot (◦), site name, and referral url (when duo) */
-.result-details--mono,
-.result-details--duo {
-    display: block; /* Force a new line */
-    flex-basis: 100%; /* Forces the details to take full width */
-    width: 100%; /* Ensures the details span the entire width */
-    margin-top: 5px; /* Adds a bit of spacing from the previous line */
+/* ----"  ◦  Amazon - Kindle * "---- */
+.result-sep-site--duo,
+.result-sep-site--mono {
+    text-align: left;
+    margin-bottom: 0.3em;
+    flex-basis: 100%;
+    order: 1;
 }
-
-/* Main URL styling for both result types */
-.result-url--mono,
-.result-url--referral {
-    font-size: 1.25em;
-    color: #343daf;
-    flex-grow: 1;
-    font-weight: 500 !important;
-    transition: color .15s, transform .15s;
-}
-
-/* Hover effect for hyperlink */
-.result-url--referral:hover,
-.result-url--mono:hover {
-    color: #1856f9;
-    text-decoration: underline;
-    transform: translateY(-2px); /* Slightly more noticeable lift */
-}
-
+/* ----" ◦ "---- */
 /* Separator dot (◦) for both result types */
 .result-separator--mono,
 .result-separator--duo {
     font-size: 1.05em;
-    color: #7a7a7a; /* Subtle gray color for the separator */
+    color: #7a7a7a;
+    /* Subtle gray color for the separator */
 }
-
+/* ----"Amazon - Kindle *"---- */
 /* Styling Site Name (after ◦) */
 .result-sitename--mono,
 .result-sitename--duo {
     font-weight: 400;
-    color: #555555; /* Slightly darker color for the site name */
+    font-size: 1em;
+    color: #555555;
+    /* Slightly darker color for the site name */
+}
+/* ----"Book Title by Ann Author"---- */
+/* Main URL  */
+.result-url--mono,
+.result-url--referral {
+    text-align: left;
+    flex: 0 1 78%;
+    order: 2;
+}
+/* Main URL styling for both result types */
+.result-url--mono a,
+.result-url--referral a {
+    padding-left: 0.75em;
+    font-weight: 500;
+    font-size: 1.2em;
+    color: #343daf;
+}
+/* ----"(non-affiliate link)"---- */
+.result-url--non-referral,
+.result-empty--mono {
+    text-align: right;
+    flex: 1 1 22%;
+    order: 3;
+}
+/* Styles for non-referral URL */
+.result-url--non-referral a {
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    word-break: keep-all;/* Prevent breaking within words */
+    font-family: 'Atkinson Hyperlegible';
+    font-size: 1em;
+    font-weight: normal !important;
+    color: #888888;
+    /* Subtle gray for non-ref */
+}
+/* Mobile view adjustments */
+@media (max-width: 420px) {
+    .result-container--mono,
+    .result-container--duo {
+        padding: 10px 5px;
+    }
 }
 
-.result-url--non-referral {
-    /* Styles for non-referral URL */
-    letter-spacing: -0.04em;
-    font-size: .9em;
-    font-weight: 500 !important;
-    color: #888888; /* Subtle gray for non-referral URL */
+@media (max-width: 420px) {
+    .result-url--mono,
+    .result-url--referral,
+    .result-url--non-referral,
+    .result-empty--mono {
+        flex: 1 1 100%;
+    }
+    .result-sep-site--duo,
+    .result-sep-site--mono {
+        order: 1;
+    }
+    .result-url--referral,
+    .result-url--mono {
+        order: 2;
+    }
+    .result-url--non-referral {
+        margin: 0.5em 0 0.1em;
+        order: 3;
+    }
+    .result-url--non-referral a {
+        font-size: 0.9em;
+    }
 }
+
 
 /*#endregion ::: SEARCH RESULTS ::: */
 
 /*#region ::: PAGE 2 - FAQ.HTML ::: */
 
-/* ALL LISTS */
+/* LISTS STYLES - ALL */
 
-/* Desktop  */
+/* Desktop list spacing */
 ul {
-    margin: 1.5em;
-  }
-  
-  /* Mobile ul */
-  @media screen and (max-width: 600px) {
+    margin: 1em;
+}
+
+/* Mobile list spacing */
+@media screen and (max-width: 600px) {
     ul {
-      margin: 0;
+    margin: 0;
     }
-  }
-  
+}
 
-/* FAQ list */
 
+/* FAQ list style */
+/* Desktop */
 ul.faq {
     column-count: 2;
     column-gap: 2.5em; 
     padding: 0px 2em;
 }
 
+/* Mobile */
 @media (max-width: 600px) {
     ul.faq {
         column-count: 1;
@@ -524,6 +624,7 @@ li.faq {
     margin-bottom: 1.5em;
 }
 
+/* Green Checkmark list style */
 ul.checkmark {
     list-style-type: none;
 }
@@ -551,64 +652,9 @@ ul li.checkmark::before {
     /* Adds space between the bullet and the text */
 }
 
+/* list in FAQ answer */
 .faq-answerlists {
     list-style-type: circle;
-}
-
-/*#region H1 FANCY FLEXIBLE - also see HTML */
-
-h1 {
-    text-align: center;
-    font-size: 1.8em;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-/* 0px-470px */
-@media (max-width: 470px) {
-    h1 {
-        font-size: inherit;
-        width: 98% !important; /* Make the header nearly full width */
-
-        margin: 0 auto; /* Center the header */
-    }
-
-    .svg-text {
-        display: inline-block;
-        vertical-align: middle;
-        width: 98%; 
-    }
-
-    .plain-text {
-        display: none !important;
-    }
-}
-
-/* 471px - Desktop */
-@media (min-width: 471px) {
-    .svg-text {
-        display: none !important;
-    }
-}
-
-/*#endregion H1 FANCY FLEXIBLE - also see HTML */
-
-h1, h2, h3,h4, h5, h6 {
-    color: #4b4e6c;
-}
-
-h2 {
-    font-size: 1.3em;
-}
-
-h3 {
-    font-size: 1em;
-}
-
-h6 {
-    font-weight: 500;
 }
 
 .faq-content {
@@ -676,7 +722,7 @@ html {
 
 /* amazon disclosure */
 .info-box {
-	outline:0;
+	outline: 0;
 	color: #4b4e6c;
 	font-size: 16px;
     margin: 100px 10px;
@@ -842,10 +888,14 @@ html {
 
 /*#region ::: FOOTER ::: */
 
-.footer-text {
+.footer-text p {
+    font-family: 'Atkinson Hyperlegible';
     line-height: 1.2; 
     font-size: 0.85em; 
     color: #36395A;
+    width: 90%;
+    margin: 0 auto; /* Centers the block */
+    padding: 0.4em 1em;
 }
 
 .copyNote {
@@ -866,8 +916,51 @@ html {
 
 /*#region ::: FONTS ::: */
 
-/* Roboto Slab  Font */
+/* Atkinson Hyperlegible Font */
+/* Atkinson Hyperlegible: Regular */
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: url('/Accio-Books_com/Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+/* Atkinson Hyperlegible: Italic */
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: url('/Accio-Books_com/Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+/* Atkinson Hyperlegible: 700 Bold */
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: url('/Accio-Books_com/Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 
+}
+  /* Atkinson Hyperlegible: 700 Bold Italic */
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: url('/Accio-Books_com/Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-700italic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+  /* Before the Rain (TEST): 700 Bold Italic */
+@font-face {
+    font-family: "Before the Rain";
+    src: url(/Accio-Books_com/Fonts/Before_the_Rain/Before\ the\ Rain.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Roboto Slab Font */
 @font-face {
     font-family: 'Roboto Slab';
     src: local('Roboto Slab Black'), local('RobotoSlab-Black'),
@@ -964,6 +1057,15 @@ html {
         url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Light.woff2') format('woff2'),
         url('../Fonts/Roboto_Slab/hinted-RobotoSlab-Light.woff') format('woff');
     font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Satisfy Font: Regular only available */
+@font-face {
+    font-family: 'Satisfy';
+    src: url('../Fonts/Satisfy/satisfy-v21-latin-regular.woff2') format('woff2');
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }

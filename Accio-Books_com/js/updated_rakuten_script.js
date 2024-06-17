@@ -1,5 +1,6 @@
+// Initialize rakutenAutomate object or use existing one
 try {
-    var rakutenAutomate = window['rakutenAutomate'];
+    var rakutenAutomate = window['rakutenAutomate'] || {};
 } catch (e) {
     var rakutenAutomate = {
         links: {},
@@ -7,14 +8,40 @@ try {
     };
 }
 
+// Ensure events is an array
+if (!Array.isArray(rakutenAutomate.events)) {
+    rakutenAutomate.events = [];
+}
+
+console.log("rakutenAutomate before setting env:", rakutenAutomate);
+
+// Set environment variables
 rakutenAutomate['env'] = {
-    catalystURL: 'https://automate.linksynery.com',
-    snippetURL: 'https://automate-frontend.linksynery.com',
+    catalystURL: 'https://automate.linksynergy.com',
+    snippetURL: 'https://automate-frontend.linksynergy.com',
     frontendURL: 'https://automate-prod.storage.googleapis.com',
     applicationKey: 'kAKBleFjFvq2uiV4XZZ2MSXKFVgjK5ji'
 };
 
+// Define the run function
+rakutenAutomate.run = function (ael) {
+    console.log("rakutenAutomate.run function executed");
+    if (!this.events || !Array.isArray(this.events)) {
+        console.error("Error: this.events is not an array or is undefined");
+        return;
+    }
+    for (var i = 0; i < this.events.length; i++) {
+        var event = this.events[i];
+        ael(event.type, event.handler, event.capture);
+    }
+    this.loaded = true;
+};
+
+// Assign rakutenAutomate to the window object
+window['rakutenAutomate'] = rakutenAutomate;
+
 rakutenAutomate['Sha1'] = {};
+
 
 rakutenAutomate['Sha1']['hash'] = function (input) {
     input = input['utf8Encode']();
@@ -129,6 +156,8 @@ if (typeof define === 'function' && define['amd']) {
         return rakutenAutomate['Sha1'];
     });
 }
+
+// Define other functions like sendPing, sendClick, etc...
 
 rakutenAutomate['sendPing'] = function () {
     var xhr = new XMLHttpRequest();
@@ -338,14 +367,14 @@ rakutenAutomate['processResponse'] = function (url, domain, currentUrl, element)
     return clickData;
 };
 
-rakutenAutomate['initialize'] = function (callback) {
+rakutenAutomate['initialize'] = function (initCallback) {
     rakutenAutomate['sendPing']();
     rakutenAutomate['initializeStorage']();
 
     const targetNode = document.body;
     const config = { childList: true, subtree: true };
 
-    const callback = function(mutationsList, observer) {
+    const observerCallback = function(mutationsList, observer) {
         for (let mutation of mutationsList) {
             if (mutation.type === 'childList') {
                 rakutenAutomate['walkUp']();
@@ -353,7 +382,7 @@ rakutenAutomate['initialize'] = function (callback) {
         }
     };
 
-    const observer = new MutationObserver(callback);
+    const observer = new MutationObserver(observerCallback);
     observer.observe(targetNode, config);
 
     console.log('Initialization complete.');
@@ -362,7 +391,7 @@ rakutenAutomate['initialize'] = function (callback) {
     rakutenAutomate['initialized'] = true;
     rakutenAutomate['ready'] = true;
 
-    callback('containerAnchorElement', function (event) {
+    initCallback('containerAnchorElement', function (event) {
         var containerAnchorElement = rakutenAutomate['findAnchor'](event.currentTarget);
         if (containerAnchorElement !== null) {
             var element = containerAnchorElement;
@@ -381,7 +410,7 @@ rakutenAutomate['initialize'] = function (callback) {
 
     for (var i = 0; i < rakutenAutomate['events'].length; i++) {
         var event = rakutenAutomate['events'][i];
-        callback(event['type'], event['target'], event['handler']);
+        initCallback(event['type'], event['target'], event['handler']);
     }
 };
 
