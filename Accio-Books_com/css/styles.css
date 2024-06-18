@@ -920,8 +920,8 @@ html {
 /* Atkinson Hyperlegible: Regular */
 @font-face {
 	font-family: 'Atkinson Hyperlegible';
-	src: url('../Fonts/atkinson-hyperlegible-v11-latin-regular.woff2') format('woff2'),
-		url('../Fonts/atkinson-hyperlegible-v11-latin-regular.woff') format('woff');
+	src: url('../Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-regular.woff2') format('woff2'),
+		url('../Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-regular.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -930,8 +930,8 @@ html {
 /* Atkinson Hyperlegible: Italic */
 @font-face {
 font-family: 'Atkinson Hyperlegible';
-	src: url('../Fonts/atkinson-hyperlegible-v11-latin-italic.woff2') format('woff2'),
-		url('../Fonts/atkinson-hyperlegible-v11-latin-italic.woff') format('woff');
+	src: url('../Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-italic.woff2') format('woff2'),
+		url('../Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-italic.woff') format('woff');
 	font-weight: 400;
 	font-style: italic;
 	font-display: swap; 
@@ -940,8 +940,8 @@ font-family: 'Atkinson Hyperlegible';
 /* Atkinson Hyperlegible: 700 Bold */
 @font-face {
 font-family: 'Atkinson Hyperlegible';
-src: url('../Fonts/atkinson-hyperlegible-v11-latin-700.woff2') format('woff2'),
-	url('../Fonts/atkinson-hyperlegible-v11-latin-700.woff') format('woff');
+src: url('../Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-700.woff2') format('woff2'),
+	url('../Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-700.woff') format('woff');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -950,17 +950,17 @@ src: url('../Fonts/atkinson-hyperlegible-v11-latin-700.woff2') format('woff2'),
   /* Atkinson Hyperlegible: 700 Bold Italic */
 @font-face {
 font-family: 'Atkinson Hyperlegible';
-src: url('../Fonts/atkinson-hyperlegible-v11-latin-700italic.woff2') format('woff2'),
-	url('../Fonts/atkinson-hyperlegible-v11-latin-700italic.woff') format('woff');
+src: url('../Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-700italic.woff2') format('woff2'),
+	url('../Fonts/Atkinson_Hyperlegible/atkinson-hyperlegible-v11-latin-700italic.woff') format('woff');
 	font-weight: 700;
 	font-style: italic;
 	font-display: swap;
 }
 
   /* Before the Rain (TEST) */
-  @font-face {
+@font-face {
     font-family: "Before the Rain";
-    src: url(../Fonts/Before_the_Rain/Before_the_Rain.woff2) format('woff2');
+    src: url('../Fonts/Before_the_Rain/Before_the_Rain.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
